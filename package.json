@@ -4,7 +4,10 @@
   "description": "version : `0.0.1` </br> status : `under development`",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager . MenuTube --platform=darwin --arch=x64 --overwrite",
+    "start": "electron .",
+    "dev": "npm start && npm run"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,10 @@
   "homepage": "https://github.com/edanchenkov/MenuTube#readme",
   "dependencies": {
     "menubar": "^5.2.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^8.4.0",
+    "electron-prebuilt": "^1.4.13",
+    "jshint": "^2.9.4"
   }
 }
