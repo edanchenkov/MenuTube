@@ -37,6 +37,7 @@ mb.on('after-create-window', function () {
   var options = {
     // userAgent: 'Mozilla/5.0 (Linux; <Android Version>; <Build Tag etc.>) AppleWebKit/<WebKit Rev> (KHTML, like Gecko) Chrome/<Chrome Rev> Mobile Safari/<WebKit Rev>'
     userAgent: 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36'
-};
+  };
+  mb.window.setResizable(false)
   mb.window.loadURL('https://m.youtube.com', options)
 });
