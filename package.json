@@ -2,7 +2,7 @@
   "name": "menutube",
   "version": "0.0.1",
   "description": "version : `0.0.1` </br> status : `under development`",
-  "main": "app.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "electron-packager . MenuTube --platform=darwin --arch=x64 --overwrite",
@@ -23,6 +23,7 @@
     "menubar": "^5.2.0"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.7",
     "electron-packager": "^8.4.0",
     "electron-prebuilt": "^1.4.13",
     "jshint": "^2.9.4"
