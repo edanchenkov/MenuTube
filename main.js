@@ -2,46 +2,35 @@ var electron = require('electron');
 var menubar = require('menubar');
 
 var options = {
-  showDockIcon: true,
-  alwaysOnTop: true,
-  showOnRightClick: false
+    showDockIcon : true,
+    alwaysOnTop : true,
+    showOnRightClick : false
 };
 
 var mb = menubar(options);
 
 var accelerators = [
-  'MediaNextTrack',
-  'MediaPreviousTrack',
-  'MediaStop',
-  'MediaPlayPause'
+    'MediaNextTrack',
+    'MediaPreviousTrack',
+    'MediaStop',
+    'MediaPlayPause'
 ];
 
 mb.on('ready', function ready() {
-  // console.log('app is ready', mb)
-  var Menu = electron.Menu;
-  var MenuItem = electron.MenuItem;
-  var BrowserWindow = electron.BrowserWindow;
+    console.info('Main process is ready, continue...');
 
-  // var win = new BrowserWindow({width: 800, height: 600, frame: false})
+    var globalShortcut = electron.globalShortcut;
 
-  var globalShortcut = electron.globalShortcut;
+    var shortcutsHandler = function (accelerator) {
+        mb.window.webContents.send('global-shortcut', { accelerator : accelerator });
+    };
 
-  globalShortcut.register('MediaNextTrack', function () {
-    // console.log('IS PRESSED', mb.window)
-    // mb.window.getAllWebContents()
-  });
+    for (var i = 0; i < accelerators.length; i++) {
+        var a = accelerators[i];
+        globalShortcut.register(a, shortcutsHandler.bind(globalShortcut, a));
+    }
 });
 
 mb.on('after-create-window', function () {
-  mb.window.setResizable(false);
-
-  // var webContents = electron.webContents;
-
-  // console.log(webContents.getFocusedWebContents())
-
-  // webContents.on('will-navigate', function () {
-  //   console.log('arguments')
-  //   var el = document.querySelector("video");
-  // })
-
+    mb.window.setResizable(false);
 });

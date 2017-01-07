@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/edanchenkov/MenuTube#readme",
   "dependencies": {
+    "bulma": "^0.3.0",
+    "font-awesome": "^4.7.0",
     "menubar": "^5.2.0"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7",
     "electron-packager": "^8.4.0",
     "electron-prebuilt": "^1.4.13",
     "jshint": "^2.9.4"

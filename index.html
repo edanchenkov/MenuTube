@@ -1,81 +1,102 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>MenuTube</title>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        webview {
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>MenuTube</title>
+        <link rel="stylesheet" type="text/css"
+              href="node_modules/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="node_modules/bulma/css/bulma.css">
+        <style>
+            html {
+                overflow-y: auto;
+            }
+
+            webview {
                 position: absolute;
-                top: 45px;
+                top: 62.5px;
                 bottom: 0;
                 left: 0;
                 right: 0;
                 margin: 0;
                 padding: 0;
                 outline: none !important;
-        }
-        
-        webview.hide {
-            flex: 0 1;
-            width: 0px;
-            height: 0px;
-        }
+            }
 
-        .controls {
-            position: absolute;
-            padding: 7.5px;
-            /*background-color: #e62117;*/
-            background-color: #D3D3D3;
-            border-bottom: 2.5px solid #A9A9A9;
-            top: 0;
-            left: 0;
-            height: 45px;
-            width: 100%
-        }
-    </style>
-</head>
+            webview.hide {
+                flex: 0 1;
+                width: 0px;
+                height: 0px;
+            }
 
-<body>
-    <div class="controls">
-        <div class="btn-group" role="group" aria-label="controls">
-            <button id="back-btn" type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-            </button>
-            <button id="refresh-btn" type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-            </button>
-            <button id="forward-btn" type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-            </button>
+            .controls {
+                background-color: #ecf0f1;
+                border-bottom: 2.5px solid #bdc3c7;
+                top: 0;
+                left: 0;
+                height: 62.5px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .control {
+                margin-left: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="controls">
+            <div class="control is-grouped">
+                <p class="control has-addons">
+                    <a id="back-btn" class="button">
+                    <span class="icon is-small">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </span>
+                    </a>
+                    <a id="refresh-btn" class="button">
+                    <span class="icon is-small">
+                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </span>
+                    </a>
+                    <a id="forward-btn" class="button">
+                    <span class="icon is-small">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                    </a>
+                </p>
+            </div>
         </div>
-        <button id="pref-btn" type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-        </button>
-    </div>
-    <webview src="https://www.youtube.com/" id="wv"></webview>
-    <script>
-        onload = function () {
-            // Get webview
-            var wv = document.getElementById('wv');
-            var initialised = false;
-            wv.addEventListener('dom-ready', function () {
-                if (!initialised) {
-                    var controls = {
-                        backButton: document.getElementById('back-btn'),
-                        refreshButton: document.getElementById('refresh-btn'),
-                        forwardButton: document.getElementById('forward-btn'),
-                        preferenceButton: document.getElementById('pref-btn')
-                    }
+        <!--<button id="pref-btn" type="button" class="btn btn-default pull-right">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </button>-->
+        <webview src="https://www.youtube.com/" id="wv"
+                 preload="./src/wvHelper.js"></webview>
+        <script>
+            onload = function () {
+                // Get webview
+                var wv = document.getElementById('wv');
+                var initialised = false;
+                wv.addEventListener('dom-ready', function () {
+                    if (!initialised) {
+                        var controls = {
+                            backButton : document.getElementById('back-btn'),
+                            refreshButton : document.getElementById('refresh-btn'),
+                            forwardButton : document.getElementById('forward-btn'),
+                            preferenceButton : document.getElementById('pref-btn')
+                        };
 
-                    initialised = true;
-                    var app = require('./src/app.js');
-                    app.continueInit(wv, controls);
-                }
-            });
-        }
-    </script>
-</body>
+                        initialised = true;
+                        var app = require('./src/app.js');
+                        app.continueInit(wv, controls);
+                    }
+                });
+            }
+        </script>
+        <!--<script src="node_modules/bootstrap/dist/js/bootstrap.min.js" rel="stylesheet"></script>-->
+    </body>
 
 </html>
