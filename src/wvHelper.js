@@ -1,7 +1,7 @@
 (function () {
     var ipcRenderer = require('electron').ipcRenderer;
 
-    ipcRenderer.on("global-shortcut", function (e, data) {
+    ipcRenderer.on('global-shortcut', function (e, data) {
         var accelerator = data.accelerator;
         var video = document.querySelector('video');
 
