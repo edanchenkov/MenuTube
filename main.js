@@ -1,21 +1,10 @@
 var electron = require('electron');
 var menubar = require('menubar');
+var ipcMain = require('electron').ipcMain;
 
-var options = {
-    showDockIcon : true,
-    alwaysOnTop : true,
-    showOnRightClick : false,
-    preloadWindow : true,
-    // y : 25,
-    // x : 400,
-    width : 400,
-    height : 400,
-    // windowPosition : 'trayLeft'
-    // windowPosition : 'trayRight',
-    windowPosition : 'trayCenter'
-};
+var AppConfig = require('./config.js');
 
-var mb = menubar(options);
+var mb = menubar(AppConfig.store);
 
 var accelerators = [
     'MediaNextTrack',
@@ -38,13 +27,28 @@ mb.on('ready', function ready() {
         globalShortcut.register(a, shortcutsHandler.bind(globalShortcut, a));
     }
 
-    mb.tray.on('right-click', function () {
+    var hideWindow = function () {
         if (mb.window.isVisible()) {
             mb.hideWindow();
         } else {
             mb.showWindow();
         }
+    };
+
+    mb.tray.on('right-click', hideWindow);
+
+    ipcMain.on('updatePreferences', function (e, config) {
+        for (var key in config) {
+            mb.setOption(key, config[key]);
+        }
+
+        AppConfig.update(config);
     });
+
+    ipcMain.on('hideAndPause', function () {
+        hideWindow();
+    });
+
 });
 
 mb.on('after-create-window', function () {

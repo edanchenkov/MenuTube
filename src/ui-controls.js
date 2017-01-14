@@ -6,6 +6,7 @@ exports.init = function (wv, controls) {
     var BrowserWindow = remote.BrowserWindow;
     var app = remote.app;
     var shell = remote.shell;
+    var ipcRenderer = require('electron').ipcRenderer;
 
     var urlHandler = require('./urlHandler.js');
 
@@ -15,7 +16,7 @@ exports.init = function (wv, controls) {
         {
             label : 'Open in browser',
             click : function () {
-                wv.send('playPause');
+                ipcRenderer.send('hideAndPause');
                 shell.openExternal(urlHandler.getCurrentURL());
             },
             role : 'help'
@@ -43,14 +44,15 @@ exports.init = function (wv, controls) {
             label : 'Preferences',
             click : function () {
                 var win = new BrowserWindow({
-                    width : 800,
-                    height : 600,
+                    // width : 800,
+                    // height : 600,
                     frame : true
                 });
 
-                var path = app.getAppPath();
-                win.loadURL('file://' + path + '/preferences.html');
+                ipcRenderer.send('hideAndPause');
 
+                var path = app.getAppPath();
+                win.loadURL('file://' + path + '/views/preferences.html');
                 win.show()
             },
             role : 'help'

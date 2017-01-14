@@ -21,6 +21,7 @@
   "homepage": "https://github.com/edanchenkov/MenuTube#readme",
   "dependencies": {
     "bulma": "^0.3.0",
+    "electron-config": "^0.2.1",
     "font-awesome": "^4.7.0",
     "menubar": "^5.2.0"
   },

@@ -6,9 +6,9 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>MenuTube Preferences</title>
         <link rel="stylesheet" type="text/css"
-              href="node_modules/font-awesome/css/font-awesome.min.css">
+              href="./../node_modules/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css"
-              href="node_modules/bulma/css/bulma.css">
+              href="./../node_modules/bulma/css/bulma.css">
         <style>
             .container {
                 padding: 20px;
@@ -21,7 +21,7 @@
         </style>
     </head>
     <body>
-        <section class="hero is-primary is-bold">
+        <section class="hero is-info">
             <div class="hero-body">
                 <div class="container">
                     <h1 class="title is-1">
@@ -42,11 +42,12 @@
                     </div>
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="alwaysOnTop" checked>
+                            <input value="yes" type="radio" name="alwaysOnTop"
+                                   checked>
                             Yes
                         </label>
                         <label class="radio">
-                            <input type="radio" name="alwaysOnTop">
+                            <input value="no" type="radio" name="alwaysOnTop">
                             No
                         </label>
                     </p>
@@ -59,15 +60,18 @@
                     </div>
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="windowPosition" checked>
+                            <input value="trayCenter" type="radio"
+                                   name="windowPosition" checked>
                             Center
                         </label>
                         <label class="radio">
-                            <input type="radio" name="windowPosition">
+                            <input value="trayRight" type="radio"
+                                   name="windowPosition">
                             Right
                         </label>
                         <label class="radio">
-                            <input type="radio" name="windowPosition">
+                            <input value="trayLeft" type="radio"
+                                   name="windowPosition">
                             Left
                         </label>
                     </p>
@@ -81,11 +85,12 @@
                     </div>
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="externalLinks" checked>
+                            <input value="yes" type="radio" name="externalLinks"
+                                   checked>
                             Yes
                         </label>
                         <label class="radio">
-                            <input type="radio" name="externalLinks">
+                            <input value="no" type="radio" name="externalLinks">
                             No
                         </label>
                     </p>
@@ -99,16 +104,38 @@
                     </div>
                     <p class="control">
                         <label class="radio">
-                            <input type="radio" name="mediaButton" checked>
+                            <input value="yes" type="radio" name="mediaButton"
+                                   checked>
                             Yes
                         </label>
                         <label class="radio">
-                            <input type="radio" name="mediaButton">
+                            <input value="no" type="radio" name="mediaButton">
                             No
                         </label>
                     </p>
                 </div>
+                <div class="container">
+                    <div class="heading">
+                        <p class="title is-3">Set User Agent</p>
+                        <p class="subtitle is-6">Might affect how YouTube looks
+                            like</p>
+                    </div>
+                    <p class="control">
+                        <span class="select">
+                            <select>
+                                <option>iPhone</option>
+                                <option>Nexus</option>
+                                <option>Desktop</option>
+                            </select>
+                        </span>
+                    </p>
+                </div>
             </section>
+            <div class="container">
+                <a id="save-btn"
+                   class="button is-success is-medium is-outlined">Save and
+                    close</a>
+            </div>
         </body>
         <footer class="footer">
             <div class="container">
@@ -129,6 +156,7 @@
                 </div>
             </div>
         </footer>
+        <script src="./../src/preferences.js"></script>
     </body>
 
 </html>
