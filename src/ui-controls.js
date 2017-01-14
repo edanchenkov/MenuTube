@@ -15,12 +15,29 @@ exports.init = function (wv, controls) {
         {
             label : 'Open in browser',
             click : function () {
+                wv.send('playPause');
                 shell.openExternal(urlHandler.getCurrentURL());
             },
             role : 'help'
         },
         {
             type : 'separator'
+        },
+        {
+            label : 'Shortcuts',
+            click : function () {
+                var win = new BrowserWindow({
+                    width : 800,
+                    height : 600,
+                    frame : true
+                });
+
+                var path = app.getAppPath();
+                // win.loadURL('file://' + path + '/preferences.html');
+
+                // win.show()
+            },
+            role : 'help'
         },
         {
             label : 'Preferences',
