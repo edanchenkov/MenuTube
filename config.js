@@ -10,14 +10,11 @@ function AppConfig() {
         alwaysOnTop : true,
         showOnRightClick : false,
         preloadWindow : true,
-        // y : 25,
-        // x : 400,
         width : 400,
         height : 400,
-        // windowPosition : 'trayLeft'
-        // windowPosition : 'trayRight',
         windowPosition : 'trayCenter',
-        externalLinks : false
+        externalLinks : false,
+        userAgent : 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
     };
 
     if (typeof config.store === 'object') {
@@ -36,7 +33,7 @@ AppConfig.prototype = {
     }
 };
 
-var getInstance = function() {
+var getInstance = function () {
     instance = instance || new AppConfig();
     return instance;
 };

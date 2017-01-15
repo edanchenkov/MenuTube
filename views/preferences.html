@@ -34,7 +34,9 @@
             <section class="section">
                 <div class="container">
                     <div class="heading">
-                        <p class="title is-3">Always on top</p>
+                        <p class="title is-3">Always on top<span
+                                class="tag is-danger is-small">Require a restart</span>
+                        </p>
                         <p class="subtitle is-6">MenuTube window is above all
                             other windows, even when losing focus. You can still
                             minimise it, just click on tray icon.</p>
@@ -116,25 +118,27 @@
                 </div>
                 <div class="container">
                     <div class="heading">
-                        <p class="title is-3">Set User Agent</p>
+                        <p class="title is-3">Set User Agent<span
+                                class="tag is-danger is-small">Require a restart</span>
+                        </p>
                         <p class="subtitle is-6">Might affect how YouTube looks
                             like</p>
                     </div>
                     <p class="control">
                         <span class="select">
-                            <select>
-                                <option>iPhone</option>
-                                <option>Nexus</option>
-                                <option>Desktop</option>
+                            <select id="user-agent" c>
+                                <option value="ipad">iPad</option>
+                                <option value="iphone">iPhone</option>
+                                <option value="android">Android</option>
+                                <option value="desktop">Desktop</option>
                             </select>
-                        </span>
+                            </spanc>
                     </p>
                 </div>
             </section>
             <div class="container">
                 <a id="save-btn"
-                   class="button is-success is-medium is-outlined">Save and
-                    close</a>
+                   class="button is-success is-medium">Save</a>
             </div>
         </body>
         <footer class="footer">
