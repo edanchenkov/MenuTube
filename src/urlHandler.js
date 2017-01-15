@@ -7,14 +7,14 @@ module.exports = {
 
         var that = this;
 
-       /*
-       *    Everything related to events below are a huge mess.
-       *    Fires multiple times, nothing we can do about it,
-       *    unless Electron js fixed it.
-       *
-       *    USE CAREFULLY!
-       *
-       * */
+        /*
+         *    Everything related to events below are a huge mess.
+         *    Fires multiple times, nothing we can do about it,
+         *    unless Electron js fixed it.
+         *
+         *    USE CAREFULLY!
+         *
+         * */
 
         wv.addEventListener('did-navigate-in-page', function (e) {
 
@@ -32,16 +32,20 @@ module.exports = {
         });
 
         /**
-        *                     START
-        *   Hack to prevent user to go to unwanted links.
-        *   Must be (!) replaced with proper solution when
-        *   https://github.com/electron/electron/issues/1378
-        *   gets proper fix
-        **/
+         *                     START
+         *   Hack to prevent user to go to unwanted links.
+         *   Must be (!) replaced with proper solution when
+         *   https://github.com/electron/electron/issues/1378
+         *   gets proper fix
+         **/
 
         wv.addEventListener('did-navigate', function (e) {
             if (!that.isAllowedURL(e.url)) {
-                wv.goBack();
+                if (e.url === 'about:blank') {
+                    wv.goForward();
+                } else {
+                    wv.goBack();
+                }
             }
         });
 
@@ -53,8 +57,8 @@ module.exports = {
         });
 
         /**
-        *                     END
-        * */
+         *                     END
+         * */
     },
     getCurrentURL : function () {
         return urlHandler.currentURL;
