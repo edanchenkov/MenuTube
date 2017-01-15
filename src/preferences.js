@@ -56,10 +56,7 @@
         var op = selectEl.options[i];
         if (userAgents[op.value] === config.userAgent) {
             selectEl.options.selectedIndex = op.index;
-        } else {
-            console.log(op.value, config.userAgent)
         }
-
     }
 
     var saveButton = document.getElementById('save-btn');
@@ -69,6 +66,7 @@
         setTimeout(function () {
             saveButton.classList.remove('is-loading');
         }, 500);
+        config.userAgent = userAgents[selectEl.options[selectEl.options.selectedIndex].value];
         ipcRenderer.send('updatePreferences', config);
     }, false);
 
