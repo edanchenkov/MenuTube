@@ -10,7 +10,7 @@
         'alwaysOnTop',
         'windowPosition',
         'externalLinks',
-        'mediaButton'
+        'globalShortcuts'
     ];
 
     var translateValue = function (value) {
@@ -55,7 +55,6 @@
     for (var i = 0; i < selectEl.options.length; i++) {
         var op = selectEl.options[i];
         if (userAgents[op.value] === config.userAgent) {
-            console.log(op.index)
             selectEl.options.selectedIndex = op.index;
         } else {
             console.log(op.value, config.userAgent)
@@ -70,10 +69,6 @@
         setTimeout(function () {
             saveButton.classList.remove('is-loading');
         }, 500);
-        config.userAgent = userAgents[selectEl.options[selectEl.selectedIndex].value];
-        console.log(userAgents[selectEl.options[selectEl.selectedIndex].value])
-        console.log(selectEl.options)
-        console.log(selectEl.selectedIndex)
         ipcRenderer.send('updatePreferences', config);
     }, false);
 
