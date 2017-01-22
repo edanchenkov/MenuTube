@@ -25,7 +25,7 @@ mb.on('ready', function ready() {
 
         for (var i = 0; i < accelerators.length; i++) {
             var a = accelerators[i];
-            if(!globalShortcut.isRegistered(a)) {
+            if (!globalShortcut.isRegistered(a)) {
                 globalShortcut.register(a, shortcutsHandler.bind(globalShortcut, a));
             }
         }
@@ -65,4 +65,12 @@ mb.on('ready', function ready() {
 
 mb.on('after-create-window', function () {
     mb.window.setResizable(false);
+});
+
+mb.on('after-show', function () {
+    mb.tray.setImage(AppConfig.store.iconPressed);
+});
+
+mb.on('after-hide', function () {
+    mb.tray.setImage(AppConfig.store.icon);
 });
