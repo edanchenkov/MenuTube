@@ -16,4 +16,15 @@
 
     });
 
+    ipcRenderer.on('changeTime', function (event, time) {
+        var video = document.querySelector('video');
+
+        if (typeof video === 'undefined' || video === null) {
+            return;
+        }
+
+        video.currentTime += time;
+
+    });
+
 }());

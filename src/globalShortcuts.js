@@ -1,13 +1,14 @@
 exports.init = function (wv) {
     var ipcRenderer = require('electron').ipcRenderer;
     ipcRenderer.on('global-shortcut', function (e, data) {
-        // wv.send('global-shortcut', data);
         var accelerator = data.accelerator;
 
         switch (accelerator) {
             case ('MediaNextTrack'):
+                wv.send('changeTime', 5);
                 break;
             case ('MediaPreviousTrack'):
+                wv.send('changeTime', -5);
                 break;
             case ('MediaStop'):
                 break;
