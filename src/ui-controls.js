@@ -24,19 +24,38 @@ exports.init = function (wv, controls) {
         {
             type : 'separator'
         },
+        // {
+        //     label : 'Video controls',
+        //     role : 'help',
+        //     submenu: [
+        //         {
+        //             label: 'Play and Pause (>||)',
+        //             enabled : false
+        //         },
+        //         {
+        //             label: 'Go 5 seconds forward (>>)',
+        //             enabled : false
+        //         },
+        //         {
+        //             label: 'Go 5 seconds backward (<<)',
+        //             enabled : false
+        //         }
+        //     ]
+        // },
         {
-            label : 'Shortcuts',
+            label : 'Video controls',
             click : function () {
                 var win = new BrowserWindow({
-                    width : 800,
-                    height : 600,
+                    // width : 800,
+                    // height : 600,
                     frame : true
                 });
 
-                var path = app.getAppPath();
-                // win.loadURL('file://' + path + '/preferences.html');
+                ipcRenderer.send('hideAndPause');
 
-                // win.show()
+                var path = app.getAppPath();
+                win.loadURL('file://' + path + '/views/preferences.html#media-keys');
+                win.show()
             },
             role : 'help'
         },
@@ -60,7 +79,8 @@ exports.init = function (wv, controls) {
         {
             label : 'Check for Updates',
             click : function () {
-                // shell.openExternal(urlHandler.getCurrentURL());
+                ipcRenderer.send('hideAndPause');
+                shell.openExternal('https://github.com/edanchenkov/MenuTube/releases');
             },
             role : 'help'
         },
@@ -97,7 +117,8 @@ exports.init = function (wv, controls) {
                 click : mi.click,
                 type : mi.type,
                 role : mi.role,
-                accelerator : mi.accelerator
+                accelerator : mi.accelerator,
+                submenu : mi.submenu
             })
         );
     }
@@ -129,4 +150,5 @@ exports.init = function (wv, controls) {
             el.addEventListener('click', clickHandler.bind(el, c), false);
         }
     }
-};
+}
+;
