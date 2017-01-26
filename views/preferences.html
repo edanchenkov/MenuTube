@@ -18,6 +18,12 @@
                 letter-spacing: 0;
                 text-transform: none;
             }
+
+            #github-link:hover {
+                color: #008751;
+                cursor: pointer;
+            }
+
         </style>
     </head>
     <body>
@@ -79,23 +85,23 @@
                     </p>
                 </div>
                 <!--<div class="container">-->
-                    <!--<div class="heading">-->
-                        <!--<p class="title is-3">Open external links in browser</p>-->
-                        <!--<p class="subtitle is-6">All external links (except-->
-                            <!--google authentecation service) should be-->
-                            <!--open in your local browser, instead of MenuTube</p>-->
-                    <!--</div>-->
-                    <!--<p class="control">-->
-                        <!--<label class="radio">-->
-                            <!--<input value="yes" type="radio" name="externalLinks"-->
-                                   <!--checked>-->
-                            <!--Yes-->
-                        <!--</label>-->
-                        <!--<label class="radio">-->
-                            <!--<input value="no" type="radio" name="externalLinks">-->
-                            <!--No-->
-                        <!--</label>-->
-                    <!--</p>-->
+                <!--<div class="heading">-->
+                <!--<p class="title is-3">Open external links in browser</p>-->
+                <!--<p class="subtitle is-6">All external links (except-->
+                <!--google authentecation service) should be-->
+                <!--open in your local browser, instead of MenuTube</p>-->
+                <!--</div>-->
+                <!--<p class="control">-->
+                <!--<label class="radio">-->
+                <!--<input value="yes" type="radio" name="externalLinks"-->
+                <!--checked>-->
+                <!--Yes-->
+                <!--</label>-->
+                <!--<label class="radio">-->
+                <!--<input value="no" type="radio" name="externalLinks">-->
+                <!--No-->
+                <!--</label>-->
+                <!--</p>-->
                 <!--</div>-->
                 <div class="container">
                     <div class="heading">
@@ -134,7 +140,7 @@
                                 <option value="android">Android</option>
                                 <option value="desktop">Desktop</option>
                             </select>
-                            </spanc>
+                        </span>
                     </p>
                 </div>
             </section>
@@ -151,10 +157,9 @@
                     </p>
                     <p>
                         Open source on github
-                        <a class="icon"
-                           href="https://github.com/edanchenkov/menutube">
+                        <span id="github-link" class="icon">
                             <i class="fa fa-github"></i>
-                        </a>
+                        </span>
                     </p>
                     <p>
                         MenuTube (2017)

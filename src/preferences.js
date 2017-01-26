@@ -5,6 +5,9 @@
     var AppConfig = require('./../config.js');
     var config = AppConfig.store;
 
+    var remote = require('electron').remote;
+    var shell = remote.shell;
+
     /* Must reflect <input name={GROUP}> in preference.html and configs */
     var groups = [
         'alwaysOnTop',
@@ -70,6 +73,14 @@
         config.userAgent = userAgents[selectEl.options[selectEl.options.selectedIndex].value];
         ipcRenderer.send('updatePreferences', config);
     }, false);
+
+
+    var githubLinkEl = document.getElementById('github-link');
+
+    githubLinkEl.addEventListener('click', function () {
+        shell.openExternal('https://github.com/edanchenkov/menutube');
+    });
+
 
 })();
 
