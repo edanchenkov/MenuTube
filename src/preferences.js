@@ -81,6 +81,8 @@
         shell.openExternal('https://github.com/edanchenkov/menutube');
     });
 
+    var appVersion = document.getElementById('app-version');
+    appVersion.innerHTML =  remote.app.getName() + ' v.' + remote.app.getVersion();
 
 })();
 
