@@ -4,7 +4,12 @@ var ipcMain = require('electron').ipcMain;
 
 var AppConfig = require('./config.js');
 
-var mb = menubar(AppConfig.store);
+var mb = menubar(
+    Object.assign(AppConfig.store, {
+        icon : __dirname + AppConfig.store.icon,
+        iconPressed : __dirname + AppConfig.store.iconPressed
+    })
+);
 
 var accelerators = [
     'MediaNextTrack',
@@ -15,6 +20,11 @@ var accelerators = [
 
 mb.on('ready', function ready() {
     console.info('Main process is ready, continue...');
+
+    //*
+    //  Hide from dock and finder
+    // */
+    mb.app.dock.hide();
 
     var globalShortcut = electron.globalShortcut;
 
