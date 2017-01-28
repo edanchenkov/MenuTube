@@ -6,6 +6,7 @@ var AppConfig = require('./config.js');
 
 var mb = menubar(
     Object.assign(AppConfig.store, {
+        // TODO: Optimise how full path is handled
         icon : __dirname + AppConfig.store.icon,
         iconPressed : __dirname + AppConfig.store.iconPressed
     })
@@ -50,8 +51,18 @@ mb.on('ready', function ready() {
     };
 
     ipcMain.on('updatePreferences', function (e, config) {
+
+        // TODO: Optimise how full path is handled
+
         for (var key in config) {
-            mb.setOption(key, config[key]);
+            if(config.hasOwnProperty(key)) {
+
+                if(key === 'icon' || key === 'iconPressed') {
+                    config[key] = __dirname + config[key]
+                }
+
+                mb.setOption(key, config[key]);
+            }
         }
 
         if (!config.globalShortcuts) {
