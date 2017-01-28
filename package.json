@@ -1,11 +1,11 @@
 {
-  "name": "menutube",
-  "version": "0.0.1",
-  "description": "version : `0.0.1` </br> status : `under development`",
+  "name": "MenuTube",
+  "version": "1.0.0",
+  "description": "Catch YouTube to your Mac's menubar!",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-packager . MenuTube --platform=darwin --arch=x64 --overwrite",
+    "build": "electron-packager ./ --platform=darwin --icon='./icons/logo-icon.icns' --out='./builds' --overwrite",
     "start": "electron .",
     "dev": "npm start && npm run"
   },
