@@ -53,10 +53,9 @@ mb.on('ready', function ready() {
         AppConfig.update(config);
     });
 
-    ipcMain.on('hideAndPause', function () {
+    ipcMain.on('hideWindow', function () {
         hideWindow();
     });
-
 
     mb.tray.on('right-click', hideWindow);
     registerGlobalShortcuts();

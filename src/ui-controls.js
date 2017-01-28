@@ -12,11 +12,16 @@ exports.init = function (wv, controls) {
 
     var menu = new Menu();
 
+    var hideAndPause = function () {
+        ipcRenderer.send('hideWindow');
+        wv.send('pause');
+    };
+
     var menuItems = [
         {
             label : 'Open in browser',
             click : function () {
-                ipcRenderer.send('hideAndPause');
+                hideAndPause();
                 shell.openExternal(urlHandler.getCurrentURL());
             },
             role : 'help'
@@ -51,7 +56,7 @@ exports.init = function (wv, controls) {
                     frame : true
                 });
 
-                ipcRenderer.send('hideAndPause');
+                hideAndPause();
 
                 var path = app.getAppPath();
                 win.loadURL('file://' + path + '/views/preferences.html#media-keys');
@@ -68,8 +73,7 @@ exports.init = function (wv, controls) {
                     frame : true
                 });
 
-                ipcRenderer.send('hideAndPause');
-
+                hideAndPause();
                 var path = app.getAppPath();
                 win.loadURL('file://' + path + '/views/preferences.html');
                 win.show()
@@ -79,7 +83,7 @@ exports.init = function (wv, controls) {
         {
             label : 'Check for Updates',
             click : function () {
-                ipcRenderer.send('hideAndPause');
+                hideAndPause();
                 shell.openExternal('https://github.com/edanchenkov/MenuTube/releases');
             },
             role : 'help'

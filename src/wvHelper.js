@@ -16,6 +16,19 @@
 
     });
 
+    ipcRenderer.on('pause', function () {
+        var video = document.querySelector('video');
+
+        if (typeof video === 'undefined' || video === null) {
+            return;
+        }
+
+        if (!video.paused) {
+            video.pause();
+        }
+
+    });
+
     ipcRenderer.on('changeTime', function (event, time) {
         var video = document.querySelector('video');
 
