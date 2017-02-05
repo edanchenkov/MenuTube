@@ -10,7 +10,7 @@ function AppConfig() {
     if(typeof __dirname !== 'undefined') {
         path = __dirname;
     }
-    
+
     var defaults = {
         showDockIcon : false,
         alwaysOnTop : true,

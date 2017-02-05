@@ -21,7 +21,9 @@ mb.on('ready', function ready() {
     //*
     //  Hide from dock and finder
     // */
-    // mb.app.dock.hide();
+    if (process.env.npm_config_debug) {
+        mb.app.dock.hide();
+    }
 
     var globalShortcut = electron.globalShortcut;
 
