@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "electron-packager ./ --platform=darwin --icon='./icons/logo-icon.icns' --out='./builds' --overwrite",
     "start": "electron .",
-    "dev": "npm start && npm run"
+    "dev": "npm start && npm run --debug"
   },
   "repository": {
     "type": "git",

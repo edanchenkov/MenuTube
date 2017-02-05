@@ -21,7 +21,7 @@ mb.on('ready', function ready() {
     //*
     //  Hide from dock and finder
     // */
-    if (process.env.npm_config_debug) {
+    if (!process.env.npm_config_debug) {
         mb.app.dock.hide();
     }
 
