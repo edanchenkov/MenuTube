@@ -31,10 +31,8 @@ function AppConfig() {
             config.set(defaults);
         }
     }
-
-    // this.store = Object.assign(defaults, config.store) || {};
+    
     this.config = config;
-
 
     Object.defineProperty(this, 'store', {
         get : function() {
