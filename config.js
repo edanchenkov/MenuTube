@@ -31,7 +31,7 @@ function AppConfig() {
             config.set(defaults);
         }
     }
-    
+
     this.config = config;
 
     Object.defineProperty(this, 'store', {
