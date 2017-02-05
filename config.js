@@ -5,6 +5,12 @@ var instance;
 function AppConfig() {
     var config = new Config();
 
+    var path = '';
+
+    if(typeof __dirname !== 'undefined') {
+        path = __dirname;
+    }
+    
     var defaults = {
         showDockIcon : false,
         alwaysOnTop : true,
@@ -16,8 +22,8 @@ function AppConfig() {
         externalLinks : false,
         userAgent : 'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.17 (KHTML, like Gecko) Version/8.0 Mobile/13A175 Safari/600.1.',
         globalShortcuts : true,
-        icon : '/icons/tray.png',
-        iconPressed : '/icons/trayInverse.png'
+        icon : path + '/icons/tray.png',
+        iconPressed : path + '/icons/trayInverse.png'
     };
 
     if (typeof config.store === 'object') {
@@ -26,8 +32,16 @@ function AppConfig() {
         }
     }
 
-    this.store = Object.assign(defaults, config.store) || {};
+    // this.store = Object.assign(defaults, config.store) || {};
     this.config = config;
+
+
+    Object.defineProperty(this, 'store', {
+        get : function() {
+            return Object.assign(defaults, config.store) || {};
+        }
+    })
+
 }
 
 AppConfig.prototype = {
