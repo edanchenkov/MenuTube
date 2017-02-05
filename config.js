@@ -22,8 +22,8 @@ function AppConfig() {
         externalLinks : false,
         userAgent : 'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.17 (KHTML, like Gecko) Version/8.0 Mobile/13A175 Safari/600.1.',
         globalShortcuts : true,
-        icon : path + '/icons/tray.png',
-        iconPressed : path + '/icons/trayInverse.png'
+        icon : path + '/icons/logo-icon-black-and-white/icon.iconset/icon_16x16.png',
+        iconPressed : path + '/icons/logo-icon-black-and-white-inverse/icon.iconset/icon_16x16.png'
     };
 
     if (typeof config.store === 'object') {
