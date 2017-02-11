@@ -62,10 +62,35 @@
         <![endif]-->
         <title>{{ site.title | default: site.github.repository_name }} by {{
             site.github.owner_name }}</title>
+        <style>
+            .banner {
+                background-image: url({{site.baseurl}}/banner-hq.jpg);
+                background-repeat: no-repeat;
+                background-position: top;
+                background-size: cover;
+                height: 22rem;
+                width: 100%;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .button {
+                position: absolute;
+                top: 15rem;
+                left: 2rem;
+                float: inherit;
+            }
+
+        </style>
     </head>
 
     <body>
         <div id="container">
+            <div class="banner">
+                <!--<div></div>-->
+                <a href="{{ site.github.releases_url }}" id="view-on-github"
+                   class="button"><span>Download .zip</span></a>
+            </div>
             <div class="inner">
 
                 <header>
@@ -88,7 +113,6 @@
                 <!--</section>-->
 
                 <!--<hr>-->
-                <img src="{{site.baseurl}}/banner.jpg">
 
                 <section id="main_content">
                     {{ content }}
