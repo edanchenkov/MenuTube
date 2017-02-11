@@ -1,4 +1,4 @@
+repository: edanchenkov/MenuTube
 theme: jekyll-theme-tactile
-show_downloads: true
-github:
-  zip_url: 'https://github.com/edanchenkov/MenuTube/releases/download/1.0.0/MenuTube.1.0.0.zip'
+show_downloads: false
+

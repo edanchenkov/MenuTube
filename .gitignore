@@ -1,3 +1,7 @@
 node_modules
 npm-debug.log
 MenuTube-darwin-x64
+vendor
+*.lock
+.bundle
+docs/_site
