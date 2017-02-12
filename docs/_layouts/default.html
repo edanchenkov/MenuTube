@@ -189,8 +189,10 @@
     <body>
 
         {% assign download_url =
-        site.github.releases[0].assets[0].browser_download_url %}
+        site.github.releases.last.assets[0].browser_download_url %}
         {% assign file_name = site.github.releases[0].assets[0].name %}
+
+        {{ site.github.releases }}
 
         <div id="container">
             <div class="banner"></div>
