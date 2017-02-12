@@ -60,16 +60,17 @@
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <title>{{ site.title | default: site.github.repository_name }} by {{
-            site.github.owner_name }}</title>
+
+        {% capture title %}{{ site.github.repository_name }} -
+        {{site.github.project_tagline}}{% endcapture %}
+
+        <title>
+            {{title}}
+        </title>
         <style>
 
             html {
                 font-size: 100%;
-            }
-
-            body {
-                font-size: 1rem;
             }
 
             #container {
@@ -77,8 +78,8 @@
             }
 
             .inner {
-                padding-left: 5rem;
-                height:100vh;
+                padding-left: 15rem;
+                height: 100vh;
             }
 
             .banner {
@@ -98,13 +99,78 @@
             }
 
             a.button {
-                position: relative;
-                left: 2rem;
-                top: 2rem;
                 width: 12rem;
                 display: inline-block !important;
-                line-height: 2rem;
+                margin-top: 1rem;
+                margin-left: 5rem;
+
             }
+
+            a.button > span {
+                background: transparent url({{site.baseurl}}/assets/images/octocat-icon.png) 12px 50% no-repeat;
+            }
+
+            #download-zip {
+                line-height: 2rem;
+                margin-top: 4rem;
+                background: #fdfdfd;
+                background: -moz-linear-gradient(top, #00bcd4 0%, #f2f2f2 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #f2f2f2));
+                background: -webkit-linear-gradient(top, #00bcd4 0%, #f2f2f2 100%);
+                background: -o-linear-gradient(top, #00bcd4 0%, #f2f2f2 100%);
+                background: -ms-linear-gradient(top, #00bcd4 0%, #f2f2f2 100%);
+                background: linear-gradient(top, #00bcd4 0%, #f2f2f2 100%);
+            }
+
+            .flex-container {
+                display: flex;
+                flex-direction: column;
+                height: 0;
+            }
+
+            /* Large Devices, Wide Screens */
+            @media only screen and (max-width: 1200px) {
+
+            }
+
+            /* Medium Devices, Desktops */
+            @media only screen and (max-width: 992px) {
+
+                .flex-container {
+                    position: absolute;
+                    top: 2rem;
+                }
+
+                #download-zip {
+                    margin-top: 0;
+                }
+
+                .inner {
+                    padding: 0;
+                }
+            }
+
+            /* Small Devices, Tablets */
+            @media only screen and (max-width: 768px) {
+                .banner {
+                    height: 20rem;
+                }
+
+                .flex-container {
+                    display: none;
+                }
+            }
+
+            /* Extra Small Devices, Phones */
+            @media only screen and (max-width: 480px) {
+
+            }
+
+            /* Custom, iPhone Retina */
+            @media only screen and (max-width: 320px) {
+
+            }
+
         </style>
     </head>
 
@@ -119,9 +185,18 @@
                 <!--<div></div>-->
             </div>
 
-            <a href="{{ download_url }}" id="download-zip"
-               class="button"><span>Get MenuTube.app</span></a>
 
+            <div class="flex-container">
+                <a href="{{ download_url }}" id="download-zip"
+                   class="button"><span>Get MenuTube.app</span></a>
+
+                <a href="{{ site.github.repository_url }}"
+                   id="view-on-github"
+                   class="button"><span>View on GitHub</span></a>
+
+                <a href="{{ site.github.releases_url }}"
+                   class="button"><span>All releases</span></a>
+            </div>
             <div class="inner">
 
 
