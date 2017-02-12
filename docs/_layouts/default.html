@@ -63,13 +63,31 @@
         <title>{{ site.title | default: site.github.repository_name }} by {{
             site.github.owner_name }}</title>
         <style>
+
+            html {
+                font-size: 100%;
+            }
+
+            body {
+                font-size: 1rem;
+            }
+
+            #container {
+                height: 0;
+            }
+
+            .inner {
+                padding-left: 5rem;
+                height:100vh;
+            }
+
             .banner {
                 background-image: url({{site.baseurl}}/banner-v3.jpg);
+                background-size: 100% auto;
+                background-position: center top;
+                background-attachment: fixed;
                 background-repeat: no-repeat;
-                background-position: top;
-                background-size: cover;
-                height: 22rem;
-                width: 100%;
+                height: 100%;
                 margin: 0 auto;
                 display: block;
             }
@@ -80,15 +98,13 @@
             }
 
             a.button {
-                position: absolute;
-                top: 15rem;
+                position: relative;
                 left: 2rem;
+                top: 2rem;
                 width: 12rem;
-                float: inherit;
-                display: block !important;
+                display: inline-block !important;
                 line-height: 2rem;
             }
-
         </style>
     </head>
 
@@ -101,10 +117,13 @@
         <div id="container">
             <div class="banner">
                 <!--<div></div>-->
-                <a href="{{ download_url }}" id="download-zip"
-                   class="button"><span>Get MenuTube.app</span></a>
             </div>
+
+            <a href="{{ download_url }}" id="download-zip"
+               class="button"><span>Get MenuTube.app</span></a>
+
             <div class="inner">
+
 
                 <header>
                     <h1>{{ site.title | default: site.github.repository_name
