@@ -152,12 +152,24 @@
 
             /* Small Devices, Tablets */
             @media only screen and (max-width: 768px) {
-                .banner {
-                    height: 20rem;
+                a.button {
+                    border: none !important;
+                    background: none !important;
+                    color: #efeef3 !important;
+                    box-shadow: none !important;
+                    text-decoration: underline !important;
+                    text-shadow: 2px 2px #333333;
+                    margin: 0;
                 }
 
-                .flex-container {
-                    display: none;
+                a > span {
+                    background-image: none !important;
+                    font-size: 1.25rem;
+                    padding-left: 0 !important;
+                }
+
+                .banner {
+                    height: 20rem;
                 }
             }
 
@@ -181,9 +193,7 @@
         {% assign file_name = site.github.releases[0].assets[0].name %}
 
         <div id="container">
-            <div class="banner">
-                <!--<div></div>-->
-            </div>
+            <div class="banner"></div>
 
 
             <div class="flex-container">
