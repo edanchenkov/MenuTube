@@ -12,7 +12,9 @@ var accelerators = [
     'MediaNextTrack',
     'MediaPreviousTrack',
     'MediaStop',
-    'MediaPlayPause'
+    'MediaPlayPause',
+    'Cmd+Alt+Y',
+    'Super+Alt+Y'
 ];
 
 mb.on('ready', function ready() {
