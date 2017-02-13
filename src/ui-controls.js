@@ -13,7 +13,7 @@ exports.init = function (wv, controls) {
     var menu = new Menu();
 
     var hideAndPause = function () {
-        ipcRenderer.send('hideWindow');
+        ipcRenderer.send('toggleWindow');
         wv.send('pause');
     };
 

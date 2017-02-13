@@ -15,6 +15,9 @@ exports.init = function (wv) {
             case ('MediaPlayPause'):
                 wv.send('playPause');
                 break;
+            case ('Cmd+Alt+Y'):
+                ipcRenderer.send('toggleWindow');
+                break;
         }
     });
 };
