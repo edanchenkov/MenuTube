@@ -13,8 +13,7 @@ var accelerators = [
     'MediaPreviousTrack',
     'MediaStop',
     'MediaPlayPause',
-    'Cmd+Alt+Y',
-    'Super+Alt+Y'
+    'Cmd+Alt+Y'
 ];
 
 mb.on('ready', function ready() {
@@ -42,7 +41,7 @@ mb.on('ready', function ready() {
         }
     };
 
-    var hideWindow = function () {
+    var toggleWindow = function () {
         if (mb.window.isVisible()) {
             mb.hideWindow();
         } else {
@@ -68,11 +67,11 @@ mb.on('ready', function ready() {
         AppConfig.update(config);
     });
 
-    ipcMain.on('hideWindow', function () {
-        hideWindow();
+    ipcMain.on('toggleWindow', function () {
+        toggleWindow();
     });
 
-    mb.tray.on('right-click', hideWindow);
+    mb.tray.on('right-click', toggleWindow);
     registerGlobalShortcuts();
 
 });
