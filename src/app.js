@@ -9,7 +9,7 @@ exports.continueInit = function (wv, controls) {
         var uiControls = require('./ui-controls.js');
         var urlHandler = require('./urlHandler.js');
 
-        var options = { userAgent : AppConfig.store.userAgent };
+        var options = { userAgent : AppConfig.store.userPreferences.userAgent };
 
         wv.loadURL('https://www.youtube.com/', options);
 

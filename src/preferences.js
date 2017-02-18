@@ -3,7 +3,7 @@
     var ipcRenderer = require('electron').ipcRenderer;
 
     var AppConfig = require('./../config.js');
-    var config = AppConfig.store;
+    var config = AppConfig.store.userPreferences;
 
     var remote = require('electron').remote;
     var shell = remote.shell;

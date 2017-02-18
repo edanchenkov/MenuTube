@@ -5,7 +5,7 @@ var ipcMain = require('electron').ipcMain;
 var AppConfig = require('./config.js');
 
 var mb = menubar(
-    Object.assign(AppConfig.store)
+    Object.assign(AppConfig.store.defaults)
 );
 
 var accelerators = [
@@ -50,13 +50,11 @@ mb.on('ready', function ready() {
     };
 
     ipcMain.on('updatePreferences', function (e, config) {
-
-        // TODO: Optimise how full path is handled
         for (var key in config) {
             if(config.hasOwnProperty(key)) {
                 mb.setOption(key, config[key]);
             }
-        };
+        }
 
         if (!config.globalShortcuts) {
             globalShortcut.unregisterAll();
@@ -81,9 +79,9 @@ mb.on('after-create-window', function () {
 });
 
 mb.on('after-show', function () {
-    mb.tray.setImage(AppConfig.store.iconPressed);
+    mb.tray.setImage(AppConfig.store.defaults.iconPressed);
 });
 
 mb.on('after-hide', function () {
-    mb.tray.setImage(AppConfig.store.icon);
+    mb.tray.setImage(AppConfig.store.defaults.icon);
 });
