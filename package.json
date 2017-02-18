@@ -1,33 +1,33 @@
 {
-  "name": "MenuTube",
-  "version": "1.0.2",
-  "description": "Catch YouTube into your macOS menu bar!",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-packager ./ --platform=darwin --icon='./icons/logo-icon.icns' --out='./builds' --overwrite",
-    "start": "electron .",
-    "dev": "npm start && npm run --debug"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/edanchenkov/MenuTube.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/edanchenkov/MenuTube/issues"
-  },
-  "homepage": "https://github.com/edanchenkov/MenuTube#readme",
-  "dependencies": {
-    "bulma": "^0.3.0",
-    "electron-config": "^0.2.1",
-    "font-awesome": "^4.7.0",
-    "menubar": "^5.2.0"
-  },
-  "devDependencies": {
-    "electron-packager": "^8.4.0",
-    "electron-prebuilt": "^1.4.13",
-    "jshint": "^2.9.4"
-  }
+    "name": "MenuTube",
+    "version": "1.0.2",
+    "description": "Catch YouTube into your macOS menu bar!",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "electron-packager ./ --platform=darwin --icon='./icons/logo-icon.icns' --out='./builds' --ignore='docs' --overwrite",
+        "start": "electron .",
+        "dev": "npm start && npm run --debug"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/edanchenkov/MenuTube.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/edanchenkov/MenuTube/issues"
+    },
+    "homepage": "https://github.com/edanchenkov/MenuTube#readme",
+    "dependencies": {
+        "bulma": "^0.3.0",
+        "electron-config": "^0.2.1",
+        "font-awesome": "^4.7.0",
+        "menubar": "^5.2.0"
+    },
+    "devDependencies": {
+        "electron-packager": "^8.4.0",
+        "electron-prebuilt": "^1.4.13",
+        "jshint": "^2.9.4"
+    }
 }
