@@ -31,3 +31,15 @@ open ./builds/MenuTube-darwin-x64/MenuTube.app
 ```bash
 npm run dev
 ```
+
+# https://edanchenkov.github.io/MenuTube/
+
+### docs/ folder
+ 
+Folder contains jekyll webapp
+
+#### Run dev
+
+```
+bundle exec jekyll serve
+```
