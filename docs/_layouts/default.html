@@ -37,7 +37,8 @@
               href="{{site.baseurl}}/favicons/favicon-57.png">
 
         <!-- For Old Chrome -->
-        <link rel="icon" href="{{site.baseurl}}/favicons/favicon-32.png" sizes="32x32">
+        <link rel="icon" href="{{site.baseurl}}/favicons/favicon-32.png"
+              sizes="32x32">
 
         <!-- For IE10 Metro -->
         <meta name="msapplication-TileColor" content="#FFFFFF">
@@ -47,7 +48,8 @@
 
         <!-- Chrome for Android -->
         <link rel="manifest" href="manifest.json">
-        <link rel="icon" sizes="192x192" href="{{site.baseurl}}/favicons/favicon-192.png">
+        <link rel="icon" sizes="192x192"
+              href="{{site.baseurl}}/favicons/favicon-192.png">
 
         <meta charset='utf-8'>
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -209,8 +211,8 @@
 
 
                 <header>
-                    <h1>{{ site.title | default: site.github.repository_name
-                        }}</h1>
+                    <h1>{{ site.title | default:
+                        site.github.releases[0].name}}</h1>
                     <h2>{{ site.description | default:
                         site.github.project_tagline }}</h2>
                 </header>
