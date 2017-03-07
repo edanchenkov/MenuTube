@@ -150,29 +150,54 @@
                 .inner {
                     padding: 0;
                 }
+
+                ul {
+                    margin-left: 1rem;
+                }
+
+                ul li {
+                    padding-left: 0;
+                }
             }
 
             /* Small Devices, Tablets */
             @media only screen and (max-width: 768px) {
                 a.button {
-                    border: none !important;
-                    background: none !important;
-                    color: #efeef3 !important;
-                    box-shadow: none !important;
-                    text-decoration: underline !important;
-                    text-shadow: 2px 2px #333333;
-                    margin: 0;
+                    float: none;
+                    display: block !important;
+                    margin: 1rem auto;
                 }
 
-                a > span {
-                    background-image: none !important;
-                    font-size: 1.25rem;
-                    padding-left: 0 !important;
+                #download-zip {
+                    margin-top: 1rem;
+                }
+
+                #view-on-github {
+                    margin: 1rem auto;
+                }
+
+                .banner {
+                    background-size: cover;
+                }
+
+                .flex-container {
+                    position: initial;
+                    top: 0;
+                    display: inline;
                 }
 
                 .banner {
                     height: 20rem;
                 }
+
+                body {
+                    text-align: center;
+                }
+
+                ul {
+                    text-align: left;
+                }
+
             }
 
             /* Extra Small Devices, Phones */
