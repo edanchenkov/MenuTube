@@ -75,7 +75,8 @@ mb.on('ready', function ready() {
 });
 
 mb.on('after-create-window', function () {
-    mb.window.setResizable(false);
+    mb.window.setResizable(true);
+    mb.window.setMinimumSize(400, 400);
 });
 
 mb.on('after-show', function () {
