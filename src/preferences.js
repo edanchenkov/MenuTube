@@ -11,6 +11,7 @@
     /* Must reflect <input name={GROUP}> in preference.html and configs */
     var groups = [
         'alwaysOnTop',
+        'windowResize',
         'windowPosition',
         'externalLinks',
         'globalShortcuts'
