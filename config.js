@@ -12,6 +12,7 @@ if (typeof __dirname !== 'undefined') {
  * */
 var userPreferences = {
     alwaysOnTop : true,
+    windowResize: true,
     windowPosition : 'trayCenter',
     userAgent : 'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.17 (KHTML, like Gecko) Version/8.0 Mobile/13A175 Safari/600.1.',
     globalShortcuts : true

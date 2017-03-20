@@ -3,6 +3,7 @@ var menubar = require('menubar');
 var ipcMain = require('electron').ipcMain;
 
 var AppConfig = require('./config.js');
+var config = AppConfig.store.userPreferences;
 
 var mb = menubar(
     Object.assign(AppConfig.store.defaults)
@@ -75,7 +76,8 @@ mb.on('ready', function ready() {
 });
 
 mb.on('after-create-window', function () {
-    mb.window.setResizable(false);
+    mb.window.setResizable(config.windowResize);
+    mb.window.setMinimumSize(400, 400);
 });
 
 mb.on('after-show', function () {
