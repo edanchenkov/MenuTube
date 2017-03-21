@@ -71,7 +71,10 @@ mb.on('ready', function ready() {
     });
 
     mb.tray.on('right-click', toggleWindow);
-    registerGlobalShortcuts();
+
+    if (config.globalShortcuts) {
+        registerGlobalShortcuts();
+    }
 
 });
 
