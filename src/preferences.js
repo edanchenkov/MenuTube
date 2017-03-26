@@ -12,6 +12,7 @@
     var groups = [
         'alwaysOnTop',
         'windowResize',
+        'windowDraggable',
         'windowPosition',
         'externalLinks',
         'globalShortcuts'

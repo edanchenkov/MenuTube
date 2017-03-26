@@ -19,6 +19,7 @@ var accelerators = [
 
 mb.on('ready', function ready() {
     console.info('Main process is ready, continue...');
+    console.info('Debug:', !!process.env.npm_config_debug);
 
     //*
     //  Hide from dock and finder
@@ -52,7 +53,7 @@ mb.on('ready', function ready() {
 
     ipcMain.on('updatePreferences', function (e, config) {
         for (var key in config) {
-            if(config.hasOwnProperty(key)) {
+            if (config.hasOwnProperty(key)) {
                 mb.setOption(key, config[key]);
             }
         }
@@ -71,7 +72,10 @@ mb.on('ready', function ready() {
     });
 
     mb.tray.on('right-click', toggleWindow);
-    registerGlobalShortcuts();
+
+    if (config.globalShortcuts) {
+        registerGlobalShortcuts();
+    }
 
 });
 
