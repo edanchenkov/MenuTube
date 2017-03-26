@@ -106,17 +106,6 @@
                     }
                 });
 
-                var AppConfig = require('./config.js');
-                var config = AppConfig.store.userPreferences;
-                if (config.windowDraggable) {
-                    var body = document.querySelector('body');
-                    body.setAttribute('style',
-                        `
-                            -webkit-app-region: drag;
-                            -webkit-user-select: none;
-                        `
-                    );
-                }
 
                 setTimeout(function () {
                     (function (i, s, o, g, r, a, m) {
