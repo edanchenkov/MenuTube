@@ -75,8 +75,9 @@
         </title>
         <style>
 
-            html {
+            html, body {
                 font-size: 100%;
+                -webkit-font-smoothing: antialiased;
             }
 
             #container {
@@ -109,6 +110,7 @@
                 display: inline-block !important;
                 margin-top: 1rem;
                 margin-left: 5rem;
+                box-shadow: 5px 5px 20px rgba(99, 75, 75, 0.5);
 
             }
 
@@ -116,16 +118,21 @@
                 background: transparent url({{site.baseurl}}/assets/images/octocat-icon.png) 12px 50% no-repeat;
             }
 
+            /* yellow - #f4f398 #ebf22e */
+            /* blue - #84bdf4 #3498db */
+
             #download-zip {
+                text-rendering: optimizeLegibility;
                 line-height: 2rem;
                 margin-top: 4rem;
                 background: #fdfdfd;
-                background: -moz-linear-gradient(top, #f4f398 0%, #ebf22e 100%);
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #ebf22e));
-                background: -webkit-linear-gradient(top, #f4f398 0%, #ebf22e 100%);
-                background: -o-linear-gradient(top, #f4f398 0%, #ebf22e 100%);
-                background: -ms-linear-gradient(top, #f4f398 0%, #ebf22e 100%);
-                background: linear-gradient(top, #f4f398 0%, #ebf22e 100%);
+                background: -moz-linear-gradient(top, #84bdf4 0%, #3498db 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #84bdf4), color-stop(100%, #3498db));
+                background: -webkit-linear-gradient(top, #84bdf4 0%, #3498db 100%);
+                background: -o-linear-gradient(top, #84bdf4 0%, #3498db 100%);
+                background: -ms-linear-gradient(top, #84bdf4 0%, #3498db 100%);
+                background: linear-gradient(top, #84bdf4 0%, #3498db 100%);
+                text-shadow: 0 1px 0 rgba(255, 231, 253, 0.8);
             }
 
             .flex-container {
