@@ -148,7 +148,6 @@ var checkForUpdate = function (menu, controls) {
                 res.json().then(function (data) {
                     if (typeof data !== 'undefined' && data.hasOwnProperty('tag_name')) {
 
-
                         if (data.tag_name !== remote.app.getVersion()) {
                             var menuItems = defaultMenuItems.map(function (mi) {
                                 /*
