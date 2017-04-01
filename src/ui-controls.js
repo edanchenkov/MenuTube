@@ -141,33 +141,42 @@ var buildMenu = function (menu, menuItems) {
  * */
 var attempts = 5;
 var checkForUpdate = function (menu, controls) {
+
+    var fetch = window.fetch;
+
+    if (typeof fetch !== 'function') {
+        return;
+    }
+
     if (attempts > 0) {
         attempts--;
         setTimeout(function () {
             fetch('https://api.github.com/repos/edanchenkov/MenuTube/releases/latest').then(function (res) {
-                res.json().then(function (data) {
-                    if (typeof data !== 'undefined' && data.hasOwnProperty('tag_name')) {
+                if (typeof res !== 'undefined' && typeof res.json === 'function') {
+                    res.json().then(function (data) {
+                        if (typeof data !== 'undefined' && data.hasOwnProperty('tag_name')) {
 
-                        if (data.tag_name !== remote.app.getVersion()) {
-                            var menuItems = defaultMenuItems.map(function (mi) {
-                                /*
-                                 *   Should check against something else probably, not label
-                                 * */
-                                if (mi.label === dynamicLabel) {
-                                    mi.label = '(!) New version is available';
-                                }
-                                return mi;
-                            });
+                            if (data.tag_name !== remote.app.getVersion()) {
+                                var menuItems = defaultMenuItems.map(function (mi) {
+                                    /*
+                                     *   Should check against something else probably, not label
+                                     * */
+                                    if (mi.label === dynamicLabel) {
+                                        mi.label = '(!) New version is available';
+                                    }
+                                    return mi;
+                                });
 
-                            var prefIcon = controls.preferenceButton.querySelector('i.fa');
+                                var prefIcon = controls.preferenceButton.querySelector('i.fa');
 
-                            prefIcon.classList.remove('fa-bars');
-                            prefIcon.classList.add('fa-exclamation-circle', 'update-available');
+                                prefIcon.classList.remove('fa-bars');
+                                prefIcon.classList.add('fa-exclamation-circle', 'update-available');
 
-                            buildMenu(menu, menuItems);
+                                buildMenu(menu, menuItems);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }, checkForUpdate.bind(this, menu));
         }, 2000);
     }
