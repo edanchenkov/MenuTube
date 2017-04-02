@@ -177,7 +177,7 @@ var checkForUpdate = function (menu, controls) {
                         }
                     });
                 }
-            }, checkForUpdate.bind(this, menu));
+            }, checkForUpdate.bind(this, menu, controls));
         }, 2000);
     }
 };
