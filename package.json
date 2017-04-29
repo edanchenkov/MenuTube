@@ -25,7 +25,7 @@
     "bulma": "^0.3.0",
     "electron-config": "^0.2.1",
     "font-awesome": "^4.7.0",
-    "menubar": "^5.2.0"
+    "menubar": "^5.2.3"
   },
   "devDependencies": {
     "electron-packager": "^8.4.0",

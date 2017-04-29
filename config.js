@@ -12,15 +12,15 @@ if (typeof __dirname !== 'undefined') {
  * */
 var userPreferences = {
     alwaysOnTop : true,
-    windowResize: false,
-    windowDraggable: false,
+    windowResize : false,
+    windowDraggable : false,
     windowPosition : 'trayCenter',
-    userAgent : 'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.17 (KHTML, like Gecko) Version/8.0 Mobile/13A175 Safari/600.1.',
     globalShortcuts : true
 };
 
 var defaults = {
     showOnRightClick : false,
+    userAgent : 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
     externalLinks : false,
     icon : path + '/icons/logo-icon-black-and-white/icon.iconset/icon_16x16.png',
     iconPressed : path + '/icons/logo-icon-black-and-white-inverse/icon.iconset/icon_16x16.png',
