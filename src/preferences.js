@@ -47,22 +47,22 @@
         }
     }
 
-    var userAgents = {
-        linux : 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36',
-        ipad : 'Mozilla/5.0 (iPad; CPU OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A300 Safari/602.1',
-        iphone : 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
-        android : 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-        desktop : 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/312.8 (KHTML, like Gecko) Safari/312.6'
-    };
-
-    var selectEl = document.getElementById('user-agent');
-
-    for (var i = 0; i < selectEl.options.length; i++) {
-        var op = selectEl.options[i];
-        if (userAgents[op.value] === config.userAgent) {
-            selectEl.options.selectedIndex = op.index;
-        }
-    }
+    // var userAgents = {
+    //     linux : 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36',
+    //     ipad : 'Mozilla/5.0 (iPad; CPU OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A300 Safari/602.1',
+    //     iphone : 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+    //     android : 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+    //     desktop : 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/312.8 (KHTML, like Gecko) Safari/312.6'
+    // };
+    //
+    // var selectEl = document.getElementById('user-agent');
+    //
+    // for (var i = 0; i < selectEl.options.length; i++) {
+    //     var op = selectEl.options[i];
+    //     if (userAgents[op.value] === config.userAgent) {
+    //         selectEl.options.selectedIndex = op.index;
+    //     }
+    // }
 
     var saveButton = document.getElementById('save-btn');
 
@@ -71,7 +71,7 @@
         setTimeout(function () {
             saveButton.classList.remove('is-loading');
         }, 500);
-        config.userAgent = userAgents[selectEl.options[selectEl.options.selectedIndex].value];
+        // config.userAgent = userAgents[selectEl.options[selectEl.options.selectedIndex].value];
         ipcRenderer.send('updatePreferences', config);
     }, false);
 
