@@ -5,3 +5,6 @@ vendor
 *.lock
 .bundle
 docs/_site
+
+.idea
+builds/

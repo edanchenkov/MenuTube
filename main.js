@@ -17,9 +17,104 @@ var accelerators = [
     'Cmd+Alt+Y'
 ];
 
+
+var defaultMenu = [
+    {
+        label : 'Edit',
+        submenu : [
+            {
+                label : 'Undo',
+                accelerator : 'CmdOrCtrl+Z',
+                role : 'undo'
+            },
+            {
+                label : 'Redo',
+                accelerator : 'Shift+CmdOrCtrl+Z',
+                role : 'redo'
+            },
+            {
+                type : 'separator'
+            },
+            {
+                label : 'Cut',
+                accelerator : 'CmdOrCtrl+X',
+                role : 'cut'
+            },
+            {
+                label : 'Copy',
+                accelerator : 'CmdOrCtrl+C',
+                role : 'copy'
+            },
+            {
+                label : 'Paste',
+                accelerator : 'CmdOrCtrl+V',
+                role : 'paste'
+            },
+            {
+                label : 'Select All',
+                accelerator : 'CmdOrCtrl+A',
+                role : 'selectall'
+            }
+        ]
+    },
+    {
+        label : 'View',
+        submenu : [
+            {
+                label : 'Reload',
+                accelerator : 'CmdOrCtrl+R',
+                click : function (item, focusedWindow) {
+                    if (focusedWindow)
+                        focusedWindow.reload();
+                }
+            },
+            {
+                label : 'Toggle Full Screen',
+                accelerator : (function () {
+                    if (process.platform === 'darwin')
+                        return 'Ctrl+Command+F';
+                    else
+                        return 'F11';
+                })(),
+                click : function (item, focusedWindow) {
+                    if (focusedWindow)
+                        focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+                }
+            },
+            {
+                label : 'Toggle Developer Tools',
+                accelerator : (function () {
+                    if (process.platform === 'darwin')
+                        return 'Alt+Command+I';
+                    else
+                        return 'Ctrl+Shift+I';
+                })(),
+                click : function (item, focusedWindow) {
+                    if (focusedWindow)
+                        focusedWindow.toggleDevTools();
+                }
+            },
+            {
+                label : 'Quit',
+                accelerator : 'Command+Q',
+                click : function () {
+                    mb && mb.app && mb.app.quit();
+                }
+            }
+        ]
+    }
+];
+
+
 mb.on('ready', function ready() {
     console.info('Main process is ready, continue...');
     console.info('Debug:', !!process.env.npm_config_debug);
+
+    /*
+     *   Set app menu to be able to use copy and paste shortcuts
+     * */
+    var Menu = electron.Menu;
+    Menu.setApplicationMenu(Menu.buildFromTemplate(defaultMenu));
 
     //*
     //  Hide from dock and finder
