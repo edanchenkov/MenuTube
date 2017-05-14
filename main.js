@@ -69,19 +69,6 @@ var defaultMenu = [
                 }
             },
             {
-                label : 'Toggle Full Screen',
-                accelerator : (function () {
-                    if (process.platform === 'darwin')
-                        return 'Ctrl+Command+F';
-                    else
-                        return 'F11';
-                })(),
-                click : function (item, focusedWindow) {
-                    if (focusedWindow)
-                        focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
-                }
-            },
-            {
                 label : 'Toggle Developer Tools',
                 accelerator : (function () {
                     if (process.platform === 'darwin')
