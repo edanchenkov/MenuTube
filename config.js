@@ -8,14 +8,16 @@ if (typeof __dirname !== 'undefined') {
 }
 
 /*
- * Configs that should be saved locally must be listed here
+ * Configs that should be saved locally must be listed here,
+ * also default values
  * */
 var userPreferences = {
     alwaysOnTop : true,
-    windowResize : false,
-    windowDraggable : false,
+    windowResize : true,
+    windowDraggable : true,
     windowPosition : 'trayCenter',
-    globalShortcuts : true
+    globalShortcuts : true,
+    PIPModeByDefault: false
 };
 
 var defaults = {

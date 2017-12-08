@@ -15,7 +15,8 @@
         'windowDraggable',
         'windowPosition',
         'externalLinks',
-        'globalShortcuts'
+        'globalShortcuts',
+        'PIPModeByDefault'
     ];
 
     var translateValue = function (value) {
@@ -83,7 +84,7 @@
     });
 
     var appVersion = document.getElementById('app-version');
-    appVersion.innerHTML =  remote.app.getName() + ' v.' + remote.app.getVersion();
+    appVersion.innerHTML = remote.app.getName() + ' v.' + remote.app.getVersion();
 
 })();
 

@@ -1,4 +1,6 @@
 var urlHandler = {};
+var AppConfig = require('./../config.js');
+var config = AppConfig.store;
 
 module.exports = {
     init : function (wv) {
@@ -8,7 +10,7 @@ module.exports = {
         var that = this;
 
         /*
-         *    Everything related to events below are a huge mess.
+         *    Everything related to events below is a huge mess.
          *    Fires multiple times, nothing we can do about it,
          *    unless Electron js fixed it.
          *
@@ -17,12 +19,14 @@ module.exports = {
          * */
 
         wv.addEventListener('did-navigate-in-page', function (e) {
-
             urlHandler.currentURL = e.url;
 
             if (that.isVideoURL(e.url)) {
                 urlHandler.videoHistory = urlHandler.videoHistory || [];
                 urlHandler.videoHistory.push(e.url);
+                if (config.userPreferences.PIPModeByDefault) {
+                    wv.send('enterPIPMode');
+                }
             }
 
             if (that.isAllowedURL(e.url)) {
@@ -50,7 +54,6 @@ module.exports = {
         });
 
         wv.addEventListener('will-navigate', function (e) {
-            console.log('GOT url', e.url)
             if (!that.isAllowedURL(e.url)) {
                 shell.openExternal(e.url)
             }

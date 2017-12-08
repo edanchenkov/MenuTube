@@ -27,6 +27,13 @@ var clickHandler = function (name, menu) {
         case ('preferenceButton'):
             menu.popup(remote.getCurrentWindow());
             break;
+        case ('PIPMode'):
+            document.body.classList.add("PIP-mode");
+            wv.send('enterPIPMode');
+            break;
+        case ('PIPDragArea'):
+            document.body.classList.remove("PIP-mode");
+            break;
     }
 };
 
@@ -192,7 +199,13 @@ exports.init = function (wv, controls) {
         if (controls.hasOwnProperty(c)) {
             var el = controls[c];
             if (el && typeof el.addEventListener === 'function') {
-                el.addEventListener('click', clickHandler.bind(el, c, menu), false);
+                var event = 'click';
+
+                if (el.classList.contains("PIP-drag-area")) {
+                    event = 'dblclick';
+                }
+
+                el.addEventListener(event, clickHandler.bind(el, c, menu), true);
             }
         }
     }
