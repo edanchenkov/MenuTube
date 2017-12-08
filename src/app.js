@@ -6,7 +6,15 @@ exports.continueInit = function (wv, controls) {
     var config = AppConfig.store;
 
     if (config.userPreferences.windowDraggable && typeof document.body !== 'undefined') {
-        document.body.setAttribute('style', '-webkit-app-region: drag; -webkit-user-select: none;');
+        document.body.classList.add('draggable');
+        setTimeout(function () {
+            document.body.style.width = '100%';
+            document.body.style.height = '100%';
+        }, 100);
+    }
+
+    if (config.userPreferences.PIPModeByDefault) {
+        document.body.classList.add("PIP-mode");
     }
 
     if (typeof wv !== 'undefined' && typeof wv.loadURL === 'function') {
