@@ -17,7 +17,6 @@ var accelerators = [
     'Cmd+Alt+Y'
 ];
 
-
 var defaultMenu = [
     {
         label : 'Edit',
@@ -161,15 +160,27 @@ mb.on('ready', function ready() {
 
 });
 
+var bounds;
+
 mb.on('after-create-window', function () {
     mb.window.setResizable(config.windowResize);
     mb.window.setMinimumSize(400, 400);
+
 });
 
 mb.on('after-show', function () {
-    mb.tray.setImage(AppConfig.store.defaults.iconPressed);
+    /* Skip first show */
+    if (typeof bounds !== "undefined") {
+        mb.window.setBounds(bounds);
+    }
+    if (config.highlightTray) {
+        mb.tray.setImage(AppConfig.store.defaults.iconPressed);
+    } else {
+        mb.tray.setHighlightMode('never');
+    }
 });
 
 mb.on('after-hide', function () {
+    bounds = mb.window.getBounds();
     mb.tray.setImage(AppConfig.store.defaults.icon);
 });

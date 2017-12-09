@@ -16,7 +16,8 @@
         'windowPosition',
         'externalLinks',
         'globalShortcuts',
-        'PIPModeByDefault'
+        'PIPModeByDefault',
+        'highlightTray'
     ];
 
     var translateValue = function (value) {

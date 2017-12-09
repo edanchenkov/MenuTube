@@ -17,7 +17,8 @@ var userPreferences = {
     windowDraggable : true,
     windowPosition : 'trayCenter',
     globalShortcuts : true,
-    PIPModeByDefault: false
+    PIPModeByDefault : false,
+    highlightTray : true
 };
 
 var defaults = {
