@@ -1,4 +1,4 @@
-# MenuTube for macOs
+# MenuTube for macOS
 
 
 Do you enjoy listening to YouTube's podcasts, audiobooks, interviews or anything else that doesn't require to focus on video? If yes, then MenuTube is for you! Put entire full functional YouTube website into your macOs's menu bar.
