@@ -127,7 +127,7 @@
             }
 
             #main_content {
-                color: #805772;
+                color: #0f0c1e;
             }
 
             #main_content > p {
@@ -154,14 +154,14 @@
                 text-rendering: optimizeLegibility;
                 line-height: 2rem;
                 margin-top: 4rem;
-                background: #fdfdfd;
-                background: -moz-linear-gradient(top, #ffe7fd 0%, #ffd6f1 100%);
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffe7fd), color-stop(100%, #ffd6f1));
-                background: -webkit-linear-gradient(top, #ffe7fd 0%, #ffd6f1 100%);
-                background: -o-linear-gradient(top, #ffe7fd 0%, #ffd6f1 100%);
-                background: -ms-linear-gradient(top, #ffe7fd 0%, #ffd6f1 100%);
-                background: linear-gradient(top, #ffe7fd 0%, #ffd6f1 100%);
-                text-shadow: 0 1px 0 rgba(255, 231, 253, 0.8);
+                background: #ff0045;
+                background: -moz-linear-gradient(top, #ff5663 0%, #ff569d 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff5663), color-stop(100%, #ff569d));
+                background: -webkit-linear-gradient(top, #ff5663 0%, #ff569d 100%);
+                background: -o-linear-gradient(top, #ff5663 0%, #ff569d 100%);
+                background: -ms-linear-gradient(top, #ff5663 0%, #ff569d 100%);
+                background: linear-gradient(top, #ff5663 0%, #ff569d 100%);
+                text-shadow: 0 1px 0 rgba(255, 0, 69, 0.8);
             }
 
             .flex-container {
@@ -257,7 +257,7 @@
 
         {% assign download_url =
         site.github.releases.first.assets[0].browser_download_url %}
-        {% assign file_name = site.github.releases[0].assets[0].name %}
+        {% assign file_name = site.github.releases[0].assets[0].tag_name %}
 
         <div id="container">
             <div class="banner"></div>
