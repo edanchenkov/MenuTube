@@ -18,7 +18,10 @@ var userPreferences = {
     windowPosition : 'trayCenter',
     globalShortcuts : true,
     PIPModeByDefault : false,
-    highlightTray : true
+    highlightTray : true,
+    rememberBounds : true,
+    bounds: undefined
+    // bounds : { x : 0, y : 0, width : 400, height : 400 }
 };
 
 var defaults = {

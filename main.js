@@ -109,6 +109,11 @@ mb.on('ready', function ready() {
         mb.app.dock.hide();
     }
 
+    if (config.rememberBounds && typeof config.bounds !== 'undefined') {
+        console.log(config.bounds);
+        mb.window.setBounds(config.bounds);
+    }
+
     var globalShortcut = electron.globalShortcut;
 
     var registerGlobalShortcuts = function () {
@@ -160,19 +165,29 @@ mb.on('ready', function ready() {
 
 });
 
-var bounds;
-
 mb.on('after-create-window', function () {
     mb.window.setResizable(config.windowResize);
     mb.window.setMinimumSize(400, 400);
 
+    var saveBounds = function () {
+        AppConfig.update({ bounds : mb.window.getBounds() });
+    };
+
+    mb.window.on('resize', saveBounds, false);
+    mb.window.on('move', saveBounds, false);
 });
 
+var bounds;
 mb.on('after-show', function () {
     /* Skip first show */
     if (typeof bounds !== "undefined") {
         mb.window.setBounds(bounds);
+    } else {
+        if (config.rememberBounds && typeof config.bounds !== 'undefined') {
+            mb.window.setBounds(config.bounds);
+        }
     }
+
     if (config.highlightTray) {
         mb.tray.setImage(AppConfig.store.defaults.iconPressed);
     } else {
