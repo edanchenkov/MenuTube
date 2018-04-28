@@ -24,6 +24,27 @@ exports.continueInit = function (wv, controls) {
 
         var options = { userAgent : config.defaults.userAgent };
 
+        /* This all is not the best approach for handling loading state,
+        *   but it is enough for now
+        * */
+        var ts = Date.now();
+        var splashScreen = document.querySelector('.splash-screen');
+        var hideSplashScreen = function () {
+            splashScreen.classList.add('hide');
+            setTimeout(function () {
+                splashScreen.style.display = 'none';
+            }, 2000);
+        };
+
+        wv.addEventListener('dom-ready', function () {
+            var diff = Date.now() - ts;
+            if (diff > 1250) {
+                hideSplashScreen();
+            } else {
+                hideSplashScreen();
+            }
+        });
+
         wv.loadURL('https://www.youtube.com/', options);
 
         urlHandler.init(wv);
