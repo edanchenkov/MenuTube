@@ -18,7 +18,8 @@
         'globalShortcuts',
         'PIPModeByDefault',
         'highlightTray',
-        'rememberBounds'
+        'rememberBounds',
+        'theme'
     ];
 
     var translateValue = function (value) {

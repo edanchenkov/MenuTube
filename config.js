@@ -20,7 +20,8 @@ var userPreferences = {
     PIPModeByDefault : false,
     highlightTray : true,
     rememberBounds : true,
-    bounds: undefined
+    bounds: undefined,
+    theme: 'red-theme'
     // bounds : { x : 0, y : 0, width : 400, height : 400 }
 };
 

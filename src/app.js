@@ -3,7 +3,21 @@ exports.continueInit = function (wv, controls) {
     console.info('Main process is initialised and seems to works');
 
     var AppConfig = require('./../config.js');
+    var ipcRenderer = require('electron').ipcRenderer;
+
     var config = AppConfig.store;
+
+    document.body.classList.add(config.userPreferences.theme);
+    ipcRenderer.on('on-preference-change', function (e, data) {
+        var classList = document.body.className.split(' ');
+        for (var i = 0; i < classList.length; i++) {
+            var className = classList[i];
+            if (className && className.indexOf('-theme') >= 0) {
+                document.body.classList.remove(className);
+            }
+        }
+        document.body.classList.add(data.theme);
+    });
 
     if (config.userPreferences.windowDraggable && typeof document.body !== 'undefined') {
         document.body.classList.add('draggable');
@@ -50,8 +64,6 @@ exports.continueInit = function (wv, controls) {
         urlHandler.init(wv);
         globalShortcuts.init(wv);
         uiControls.init(wv, controls);
-
-        // document.querySelector('webview').openDevTools()
     } else {
         alert('Something went wrong, cannot create webview...');
     }

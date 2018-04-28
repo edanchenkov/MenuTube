@@ -145,6 +145,8 @@ mb.on('ready', function ready() {
             registerGlobalShortcuts();
         }
 
+        mb.window.webContents.send('on-preference-change', { theme : config.theme });
+
         AppConfig.update(config);
     });
 
