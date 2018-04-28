@@ -109,11 +109,6 @@ mb.on('ready', function ready() {
         mb.app.dock.hide();
     }
 
-    if (config.rememberBounds && typeof config.bounds !== 'undefined') {
-        console.log(config.bounds);
-        mb.window.setBounds(config.bounds);
-    }
-
     var globalShortcut = electron.globalShortcut;
 
     var registerGlobalShortcuts = function () {
