@@ -6,6 +6,9 @@ var app = remote.app;
 var shell = remote.shell;
 var ipcRenderer = require('electron').ipcRenderer;
 
+var AppConfig = require('./../config.js');
+var config = AppConfig.store;
+
 var urlHandler = require('./urlHandler.js');
 var wv = window.wv;
 
@@ -33,6 +36,16 @@ var clickHandler = function (name, menu) {
             break;
         case ('PIPDragArea'):
             document.body.classList.remove("PIP-mode");
+            break;
+        case ('desktopModeButton'):
+            /* Not the best way, but fine for now */
+            var isActive = this.classList.contains('active');
+            AppConfig.update({ desktopMode : !isActive });
+            if (typeof window !== 'undefined' &&
+                typeof window.location !== 'undefined' &&
+                typeof window.location.reload == 'function') {
+                window.location.reload();
+            }
             break;
     }
 };
@@ -191,6 +204,7 @@ var checkForUpdate = function (menu, controls) {
 
 
 exports.init = function (wv, controls) {
+
     var menu = new Menu();
     buildMenu(menu, defaultMenuItems);
     checkForUpdate(menu, controls);
@@ -203,6 +217,14 @@ exports.init = function (wv, controls) {
 
                 if (el.classList.contains("PIP-drag-area")) {
                     event = 'dblclick';
+                }
+
+                if (c === 'desktopModeButton') {
+                    if (config.userPreferences.desktopMode) {
+                        el.classList.add('active');
+                    } else {
+                        el.classList.remove('active');
+                    }
                 }
 
                 el.addEventListener(event, clickHandler.bind(el, c, menu), true);

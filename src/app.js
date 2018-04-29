@@ -38,6 +38,10 @@ exports.continueInit = function (wv, controls) {
 
         var options = { userAgent : config.defaults.userAgent };
 
+        if (config.userPreferences.desktopMode) {
+            options.userAgent = config.defaults.desktopUserAgent;
+        }
+
         /* This all is not the best approach for handling loading state,
         *   but it is enough for now
         * */
@@ -57,6 +61,9 @@ exports.continueInit = function (wv, controls) {
             } else {
                 hideSplashScreen();
             }
+
+            /* DEBUG wvHelper */
+            // wv.openDevTools();
         });
 
         wv.loadURL('https://www.youtube.com/', options);

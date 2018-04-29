@@ -20,14 +20,16 @@ var userPreferences = {
     PIPModeByDefault : false,
     highlightTray : true,
     rememberBounds : true,
-    bounds: undefined,
-    theme: 'red-theme'
+    bounds : undefined,
+    theme : 'red-theme',
+    desktopMode : false
     // bounds : { x : 0, y : 0, width : 400, height : 400 }
 };
 
 var defaults = {
     showOnRightClick : false,
     userAgent : 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
+    desktopUserAgent : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
     externalLinks : false,
     icon : path + '/icons/logo-icon-black-and-white/icon.iconset/icon_16x16.png',
     iconPressed : path + '/icons/logo-icon-black-and-white-inverse/icon.iconset/icon_16x16.png',
