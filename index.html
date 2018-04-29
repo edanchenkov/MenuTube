@@ -183,6 +183,15 @@
                 }
             }
 
+            #app-version {
+                position: absolute;
+                bottom: 1rem;
+                text-align: center;
+                width: 100%;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
             /* THEMES */
             /* MAKE SURE ALL THEME HAVE `-theme` prefix !!! */
 
@@ -196,6 +205,10 @@
                 background-color: #e62117;
                 border-color: #c1140c;
                 color: #ffffff;
+            }
+
+            body.red-theme #pref-btn > span > .update-available {
+                color: #00ff6a;
             }
 
             /* DARK BLUE */
@@ -264,11 +277,16 @@
                 </p>
             </div>
         </div>
-        <div class="splash-screen"></div>
+        <div class="splash-screen">
+            <span id="app-version"></span>
+        </div>
         <webview src="about:blank" id="wv"
                  preload="./src/wvHelper.js"></webview>
         <script>
             onload = function () {
+                var remote = require('electron').remote;
+                document.getElementById('app-version').innerText = 'MenuTube v.' + remote.app.getVersion();
+
                 // Get webview
                 var wv = document.getElementById('wv');
                 var initialised = false;
