@@ -9,7 +9,7 @@ if (typeof __dirname !== 'undefined') {
 
 /*
  * Configs that should be saved locally must be listed here,
- * also default values
+ * also settings that user can implicitly change
  * */
 var userPreferences = {
     alwaysOnTop : true,
