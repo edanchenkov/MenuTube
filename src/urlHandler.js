@@ -27,6 +27,8 @@ module.exports = {
                 if (config.userPreferences.PIPModeByDefault) {
                     wv.send('enterPIPMode');
                 }
+
+                wv.send('onDidNavigateVideoPage', e.url);
             }
 
             if (that.isAllowedURL(e.url)) {

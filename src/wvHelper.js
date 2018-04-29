@@ -1,5 +1,12 @@
 (function () {
     var ipcRenderer = require('electron').ipcRenderer;
+    var attempts = 1000;
+
+    var setStream = function (video) {
+        var id = video.id.replace('player_', '');
+        var stream = '<iframe src="https://www.youtube.com/embed/' + id + '" style="width: 100%; height: 100%;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+        document.body.innerHTML = stream;
+    };
 
     ipcRenderer.on('playPause', function () {
         var video = document.querySelector('video');
@@ -44,13 +51,19 @@
         var video = document.querySelector('video');
 
         if (typeof video === 'undefined' || video === null) {
-            setTimeout(_retry, 100);
+            if (attempts > 0) {
+                setTimeout(_retry, 100);
+                attempts--;
+            } else {
+                attempts = 1000;
+            }
             return;
         }
 
         if (typeof video !== "undefined") {
             document.body.innerHTML = '';
             document.body.style.backgroundColor = "black";
+            document.body.className = '';
             video.style.width = '100%';
             video.style.height = '100%';
             video.style.position = 'absolute';
@@ -59,14 +72,29 @@
             video.style.zIndex = 9999;
 
             document.body.appendChild(video);
+        }
+    });
 
-            if (video.paused) {
-                video.play();
+    ipcRenderer.on('onDidNavigateVideoPage', function _retry(event, url) {
+        var video = document.querySelector('video');
+
+        if (typeof video === 'undefined' || video === null) {
+            if (attempts > 0) {
+                setTimeout(_retry, 100);
+                attempts--;
             } else {
-                video.pause();
+                attempts = 1000;
             }
+            return;
         }
 
+        if (typeof video === 'undefined') {
+            return;
+        }
+
+        if (video.src.indexOf('m3u8') > -1) {
+            setStream(video);
+        }
     });
 
 }());
