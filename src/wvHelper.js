@@ -72,6 +72,10 @@
             video.style.zIndex = 9999;
 
             document.body.appendChild(video);
+
+            setTimeout(function () {
+                video.play();
+            }, 100);
         }
     });
 
