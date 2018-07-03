@@ -78,28 +78,26 @@
             html, body {
                 font-size: 100%;
                 -webkit-font-smoothing: antialiased;
-                margin: 0;
-                padding: 0;
             }
 
-            body {
+            #container {
+                height: 0;
+            }
+
+            .inner {
+                padding-left: 15rem;
+                height: 100vh;
+            }
+
+            .banner {
                 background-image: url({{site.baseurl}}/banner-v3.jpg);
                 background-size: cover;
                 background-position: center top;
                 background-attachment: fixed;
                 background-repeat: no-repeat;
                 height: 100%;
-                width: 100%;
-            }
-
-            #container {
-                height: 0;
-                background: transparent;
-            }
-
-            .inner {
-                padding-left: 15rem;
-                height: 100vh;
+                margin: 0 auto;
+                display: block;
             }
 
             #download-zip span {
@@ -262,7 +260,7 @@
         {% assign file_name = site.github.releases[0].assets[0].tag_name %}
 
         <div id="container">
-            <!--<div class="banner"></div>-->
+            <div class="banner"></div>
             <div class="flex-container">
                 <a href="{{ download_url }}" id="download-zip"
                    class="button"><span>Get MenuTube.app</span></a>
