@@ -8,7 +8,11 @@ Do you enjoy listening to YouTube's podcasts, audiobooks, interviews or anything
  - Control media playback using macOs's functional keys on your keyboard!
  - Intuitive and simple UI
  - And more
-  
+
+### Install with Homebrew Cask
+```bash
+brew cask install menutube
+```
 
 ### Build macOs application (darwin)
 
