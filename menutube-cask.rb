@@ -1,6 +1,6 @@
 cask 'menutube' do
-  version '1.4.0'
-  sha256 '6c8bfdaf72edd7b62c28ee931a5a67b06e5021702e1d1a9021b7ac22b19c4f51'
+  version :latest
+  sha256 :no_check
 
   # github.com/edanchenkov/MenuTube was verified as official when first introduced to the cask
   url "https://github.com/edanchenkov/MenuTube/releases/download/#{version}/MenuTube.#{version}.zip"
