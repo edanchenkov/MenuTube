@@ -5,12 +5,17 @@ Do you enjoy listening to YouTube's podcasts, audiobooks, interviews or anything
  Features:
  - Browse mobile YouTube version
  - Watch or listen to bazillion hours of content
- - Control media playback using macOs's functional keys on your keyboard!
+ - Control media playback using macOS's functional keys on your keyboard!
  - Intuitive and simple UI
  - And more
-  
 
-### Build macOs application (darwin)
+# Installation
+```bash
+brew cask install menutube
+```
+or download from release page https://github.com/edanchenkov/MenuTube/releases
+
+### Build macOS application (darwin)
 
 ```bash
 [sudo] npm install -g electron
