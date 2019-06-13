@@ -38,6 +38,13 @@ npm run dev
  
 Folder contains jekyll webapp
 
+
+Go to `docs` folder
+
+```
+bundle install --path vendor/bundle
+```
+
 #### Run dev
 
 ```
