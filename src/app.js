@@ -1,6 +1,6 @@
 exports.continueInit = function (wv, controls) {
 
-    console.info('Main process is initialised and seems to works');
+    console.info('Main process is initialised and seems to work');
 
     var AppConfig = require('./../config.js');
     var ipcRenderer = require('electron').ipcRenderer;
