@@ -107,15 +107,32 @@
 
             a.button,
             #homebrew-link {
-                width: 12rem;
+                width: 14rem;
                 display: inline-block !important;
                 margin-top: 1rem;
                 margin-left: 4rem;
                 box-shadow: 5px 5px 20px rgba(99, 75, 75, 0.5);
             }
 
-            a.button:not(#homebrew-link) > span {
+            #all-releases > span {
                 background: transparent url({{site.baseurl}}/assets/images/octocat-icon.png) 12px 50% no-repeat;
+            }
+
+            #support-link {
+                text-rendering: optimizeLegibility;
+                background: #d4d551;
+                background: -moz-linear-gradient(top, #e2ff63 0%, #d5c000 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2ff63), color-stop(100%, #d5c000));
+                background: -webkit-linear-gradient(top, #e2ff63 0%, #d5c000 100%);
+                background: -o-linear-gradient(top, #e2ff63 0%, #d5c000 100%);
+                background: -ms-linear-gradient(top, #e2ff63 0%, #d5c000 100%);
+                background: linear-gradient(top, #e2ff63 0%, #d5c000 100%);
+                text-shadow: 0 1px 0 rgba(255, 254, 240, 0.8);
+            }
+
+            #support-link > span {
+                padding-left: 0;
+                text-align: center;
             }
 
             #homebrew-link {
@@ -131,6 +148,22 @@
                 text-align: center;
                 padding: 0.2rem;
                 border-radius: 0.25rem;
+            }
+
+            a {
+                -webkit-font-smoothing: subpixel-antialiased;
+                transform: translateZ(0);
+                backface-visibility: hidden;
+                will-change: transform;
+                -webkit-transition: -webkit-transform 0.125s ease-in-out;
+                transition: -webkit-transform 0.125s ease-in-out;
+                transition: transform 0.125s ease-in-out;
+                transition: transform 0.125s ease-in-out, -webkit-transform 0.125s ease-in-out;
+            }
+
+            a:hover {
+                -webkit-transform: scale(1.125) perspective(1px);
+                transform: scale(1.125) perspective(1px);
             }
 
             header > h1,
@@ -281,13 +314,18 @@
                     <pre>$ brew cask install menutube</pre>
                 </a>
                 <a href="{{ download_url }}" id="download-zip"
-                class="button"><span>Get MenuTube.app</span></a>
+                   class="button"><span>Get MenuTube.app</span></a>
+                <a href="https://www.paypal.me/EDanchenkov"
+                   class="button"
+                   id="support-link">
+                    <span>Support development</span></a>
                 <a href="{{ site.github.repository_url }}"
                    id="view-on-github"
-                class="button"><span>View on GitHub</span></a>
+                   class="button"><span>View on GitHub</span></a>
 
                 <a href="{{ site.github.releases_url }}"
-                class="button"><span>All releases</span></a>
+                   id="all-releases"
+                   class="button"><span>All releases</span></a>
 
             </div>
             <div class="inner">
