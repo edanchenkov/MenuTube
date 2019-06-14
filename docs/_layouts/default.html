@@ -112,6 +112,7 @@
                 margin-top: 1rem;
                 margin-left: 4rem;
                 box-shadow: 5px 5px 20px rgba(99, 75, 75, 0.5);
+                text-shadow: 0 1px 0 rgba(205, 205, 205, 0.8);
             }
 
             #all-releases > span {
@@ -127,7 +128,6 @@
                 background: -o-linear-gradient(top, #e2ff63 0%, #d5c000 100%);
                 background: -ms-linear-gradient(top, #e2ff63 0%, #d5c000 100%);
                 background: linear-gradient(top, #e2ff63 0%, #d5c000 100%);
-                text-shadow: 0 1px 0 rgba(255, 254, 240, 0.8);
             }
 
             #support-link > span {
@@ -143,8 +143,9 @@
                 background: none;
                 box-shadow: none;
                 border: none;
-                width: 14rem;
+                width: 15rem;
                 margin-top: 4rem;
+                font-weight: normal;
                 /*margin-left: 3rem;*/
             }
 
@@ -168,9 +169,17 @@
                 transition: transform 0.125s ease-in-out, -webkit-transform 0.125s ease-in-out;
             }
 
-            a:hover {
-                -webkit-transform: scale(1.125) perspective(1px);
-                transform: scale(1.125) perspective(1px);
+            a.button:hover {
+                filter: brightness(125%);
+                border-top: solid 2px white;
+                border-right: solid 2px white;
+                border-bottom: solid 2px white;
+                border-left: solid 2px white;
+            }
+
+            a.button:active {
+                -webkit-transform: scale(0.925) perspective(1px);
+                transform: scale(0.925) perspective(1px);
             }
 
             header > h1,
@@ -242,10 +251,6 @@
                 .flex-container {
                     position: absolute;
                     top: 2rem;
-                }
-
-                #download-zip {
-                    margin-top: 0;
                 }
 
                 .inner {
@@ -324,9 +329,9 @@
         <div id="container">
             <div class="banner"></div>
             <div class="flex-container">
-                <a id="homebrew-link" class="button">
+                <div id="homebrew-link" class="button">
                     <pre>$ brew cask install menutube</pre>
-                </a>
+                </div>
                 <a href="{{ download_url }}" id="download-zip"
                    class="button"><span>Get MenuTube.app</span></a>
                 <a href="https://www.paypal.me/EDanchenkov"
