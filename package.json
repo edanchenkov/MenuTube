@@ -1,6 +1,6 @@
 {
   "name": "MenuTube",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Catch YouTube into your macOS menu bar!",
   "main": "main.js",
   "scripts": {
@@ -25,11 +25,11 @@
     "bulma": "^0.3.2",
     "electron-config": "^0.2.1",
     "font-awesome": "^4.7.0",
-    "menubar": "^5.2.3"
+    "menubar": "^8.0.1"
   },
   "devDependencies": {
-    "electron-packager": "^8.7.2",
-    "electron-prebuilt": "^1.4.13",
+    "electron": "^8.2.0",
+    "electron-packager": "^14.2.1",
     "jshint": "^2.9.5"
   }
 }
