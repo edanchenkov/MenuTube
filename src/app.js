@@ -36,7 +36,7 @@ exports.continueInit = function (wv, controls) {
         var uiControls = require('./ui-controls.js');
         var urlHandler = require('./urlHandler.js');
 
-        var options = { userAgent : config.defaults.userAgent };
+        var options = { userAgent: config.defaults.userAgent };
 
         if (config.userPreferences.desktopMode) {
             options.userAgent = config.defaults.desktopUserAgent;
@@ -66,11 +66,11 @@ exports.continueInit = function (wv, controls) {
             // wv.openDevTools();
         });
 
-        wv.loadURL('https://www.youtube.com/', options);
-
-        urlHandler.init(wv);
-        globalShortcuts.init(wv);
-        uiControls.init(wv, controls);
+        wv.loadURL('https://www.youtube.com/', options).then(() => {
+            urlHandler.init(wv);
+            globalShortcuts.init(wv);
+            uiControls.init(wv, controls);
+        });
     } else {
         alert('Something went wrong, cannot create webview...');
     }

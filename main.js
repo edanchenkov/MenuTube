@@ -1,5 +1,5 @@
 var electron = require('electron');
-var menubar = require('menubar');
+const { menubar } = require('menubar');
 var ipcMain = require('electron').ipcMain;
 
 var AppConfig = require('./config.js');
@@ -169,6 +169,8 @@ mb.on('after-create-window', function () {
     var saveBounds = function () {
         AppConfig.update({ bounds : mb.window.getBounds() });
     };
+
+    // mb.window.openDevTools()
 
     mb.window.on('resize', saveBounds, false);
     mb.window.on('move', saveBounds, false);
