@@ -4,7 +4,7 @@
 
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>MenuTube Preferences</title>
+        <title>Controls</title>
         <link rel="stylesheet" type="text/css"
               href="./../node_modules/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css"
@@ -31,250 +31,42 @@
             <div class="hero-body">
                 <div class="container">
                     <h1 class="title is-1">
-                        Preferences
+                        Controls
                     </h1>
                 </div>
             </div>
         </section>
         <body>
-            <section class="section">
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Always on top<span
-                                class="tag is-danger is-small">Require a restart</span>
-                        </p>
-                        <p class="subtitle is-6">MenuTube window is above all
-                            other windows, even when losing focus. You can still
-                            minimise it, just click on tray icon.</p>
+            <div id="media-keys" class="container">
+                <div class="heading">
+                    <p class="title is-3">Use media key on keyboard to stop
+                        video/audio (Video controls in menu)</p>
+                    <p class="subtitle is-6">Manage playback with media
+                        keys on your Mac's keyboard</p>
 
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio" name="alwaysOnTop"
-                                   checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio" name="alwaysOnTop">
-                            No
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Window resize<span
-                                class="tag is-danger is-small">Require a restart</span>
-                        </p>
-                        <p class="subtitle is-6">Allow you to resize window</p>
-
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio" name="windowResize"
-                                   checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio" name="windowResize">
-                            No
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Window draggable<span
-                                class="tag is-danger is-small">Require a restart</span>
-                        </p>
-                        <p class="subtitle is-6">Allow you to drag window</p>
-
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio"
-                                   name="windowDraggable"
-                                   checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio"
-                                   name="windowDraggable">
-                            No
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Window position</p>
-                        <p class="subtitle is-6">Choose position from tray</p>
-
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="trayCenter" type="radio"
-                                   name="windowPosition" checked>
-                            Center
-                        </label>
-                        <label class="radio">
-                            <input value="trayRight" type="radio"
-                                   name="windowPosition">
-                            Right
-                        </label>
-                        <label class="radio">
-                            <input value="trayLeft" type="radio"
-                                   name="windowPosition">
-                            Left
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Color theme</p>
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="gray-theme" type="radio"
-                                   name="theme" checked>
-                            Gray
-                        </label>
-                        <label class="radio">
-                            <input value="red-theme" type="radio"
-                                   name="theme">
-                            Red
-                        </label>
-                        <label class="radio">
-                            <input value="blue-theme" type="radio"
-                                   name="theme">
-                            Dark Blue
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Use PIP (Picture in Picture) mode
-                            by default</p>
-                        <p class="subtitle is-6">Hide all UI elements</p>
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio"
-                                   name="PIPModeByDefault" checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio"
-                                   name="PIPModeByDefault">
-                            No
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Highlight tray icon<span
-                                class="tag is-danger is-small">Require a restart</span>
-                        </p>
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio"
-                                   name="highlightTray" checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio"
-                                   name="highlightTray">
-                            No
-                        </label>
-                    </p>
-                </div>
-                <div class="container">
-                    <div class="heading">
-                        <p class="title is-3">Save and restore window's position
-                            and size
-                        </p>
-                        <p class="subtitle is-6">Position and size of window
-                            will be restored from the last time MenuTube was
-                            opened</p>
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio"
-                                   name="rememberBounds" checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio"
-                                   name="rememberBounds">
-                            No
-                        </label>
-                    </p>
-                </div>
-                <div id="media-keys" class="container">
-                    <div class="heading">
-                        <p class="title is-3">Use media key on keyboard to stop
-                            video/audio (Video controls in menu)</p>
-                        <p class="subtitle is-6">Manage playback with media
-                            keys on your Mac's keyboard</p>
-
-                        <nav class="panel">
-                            <p class="panel-block">
+                    <nav class="panel">
+                        <p class="panel-block">
                                 <span class="panel-icon"><i class="fa fa-play"
                                                             aria-hidden="true"></i></span>
-                                to Play or Pause video
-                            </p>
-                            <p class="panel-block">
+                            to Play or Pause video
+                        </p>
+                        <p class="panel-block">
                                 <span class="panel-icon"><i
                                         class="fa fa-forward"
                                         aria-hidden="true"></i></span> to jump 5
-                                sec forward
-                            </p>
-                            <p class="panel-block">
+                            sec forward
+                        </p>
+                        <p class="panel-block">
                                 <span class="panel-icon">
                                     <i class="fa fa-backward"
                                        aria-hidden="true"></i>
                                 </span> to jump 5 sec backward
-                            </p>
-                            <p class="panel-block">
-                                "Cmd(⌘)+Alt(⌥)+Y" - to toggle window
-                            </p>
-                        </nav>
-                    </div>
-                    <p class="control">
-                        <label class="radio">
-                            <input value="yes" type="radio"
-                                   name="globalShortcuts"
-                                   checked>
-                            Yes
-                        </label>
-                        <label class="radio">
-                            <input value="no" type="radio"
-                                   name="globalShortcuts">
-                            No
-                        </label>
-                    </p>
+                        </p>
+                        <p class="panel-block">
+                            "Cmd(⌘)+Alt(⌥)+Y" - to toggle window
+                        </p>
+                    </nav>
                 </div>
-
-                <!--<div class="container">-->
-                <!--<div class="heading">-->
-                <!--<p class="title is-3">Active device<span-->
-                <!--class="tag is-danger is-small">Require a restart</span>-->
-                <!--</p>-->
-                <!--<p class="subtitle is-6">Choose what device MenuTube emulates to open YouTube</p>-->
-                <!--</div>-->
-                <!--<p class="control">-->
-                <!--<span class="select">-->
-                <!--<select id="user-agent">-->
-                <!--<option value="ipad">iPad</option>-->
-                <!--<option value="iphone">iPhone</option>-->
-                <!--<option value="android">Android</option>-->
-                <!--<option value="desktop">Desktop</option>-->
-                <!--</select>-->
-                <!--</span>-->
-                <!--</p>-->
-                <!--</div>-->
-            </section>
-            <div class="container">
-                <a id="save-btn"
-                   class="button is-success is-medium">Save</a>
             </div>
         </body>
         <footer class="footer">
@@ -290,7 +82,7 @@
                         </span>
                     </p>
                     <p id="app-version">
-                        MenuTube (2018)
+                        MenuTube (2020)
                     </p>
                 </div>
             </div>

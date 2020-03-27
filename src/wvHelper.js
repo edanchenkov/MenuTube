@@ -1,3 +1,10 @@
+const l = document.addEventListener;
+
+// Hijack event listener to prevent YouTube from stopping on blue window (lose focus)
+document.addEventListener = () => {
+    l.apply(document, arguments);
+};
+
 (function () {
     var ipcRenderer = require('electron').ipcRenderer;
     var attempts = 1000;
