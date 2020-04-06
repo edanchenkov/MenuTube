@@ -51,7 +51,8 @@ exports.continueInit = function (wv, controls) {
             splashScreen.classList.add('hide');
             setTimeout(function () {
                 splashScreen.style.display = 'none';
-            }, 2000);
+                // Must be longer that hide transition, see index.html
+            }, 600);
         };
 
         wv.addEventListener('dom-ready', function () {

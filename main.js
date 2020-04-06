@@ -3,7 +3,7 @@ const { menubar } = require('menubar');
 var ipcMain = require('electron').ipcMain;
 
 var AppConfig = require('./config.js');
-var config = AppConfig.store.userPreferences;
+var config = AppConfig.store.all;
 
 var mb = menubar(
     Object.assign(AppConfig.store.defaults)
@@ -164,16 +164,7 @@ mb.on('ready', function ready() {
 
 mb.on('after-create-window', function () {
     mb.window.setResizable(config.windowResize);
-    mb.window.setMinimumSize(400, 400);
-
-    var saveBounds = function () {
-        AppConfig.update({ bounds : mb.window.getBounds() });
-    };
-
-    // mb.window.openDevTools()
-
-    mb.window.on('resize', saveBounds, false);
-    mb.window.on('move', saveBounds, false);
+    mb.window.setMinimumSize(config.browserWindow.width, config.browserWindow.height);
 });
 
 var bounds;

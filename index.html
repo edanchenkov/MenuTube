@@ -116,7 +116,7 @@
                 background-color: #ecf0f1;
                 top: 0;
                 opacity: 1;
-                transition: opacity .25s ease-out;
+                transition: all .525s ease-out;
             }
 
             .splash-screen:after {
@@ -132,22 +132,23 @@
                 position: absolute;
                 animation-name: zoomIn;
 
-                transform: scale3d(0.25, 0.25, 0.25);
+                transform: scale(0.25, 0.25);
             }
 
             .splash-screen.hide {
                 opacity: 0;
+                transform: scale(8, 8);
             }
 
             @keyframes zoomIn {
                 from {
                     opacity: 0.2;
-                    transform: scale3d(0.25, 0.25, 0.25);
+                    transform: scale(0.25, 0.25);
                 }
 
                 50% {
                     opacity: 1;
-                    transform: scale3d(1, 1, 1);
+                    transform: scale(0.5, 0.5);
                 }
             }
 

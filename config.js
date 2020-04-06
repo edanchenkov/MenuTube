@@ -27,9 +27,7 @@ var userPreferences = {
 
 var defaults = {
     showOnRightClick: false,
-    // userAgent: 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30',
-    // userAgent: 'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-J737P) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.2 Chrome/71.0.3578.99 Mobile Safari/537.36',
-    userAgent: 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.2 Chrome/71.0.3578.99 Mobile Safari/537.36',
+    userAgent: 'MMozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36',
     desktopUserAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
     externalLinks: false,
     icon: path + '/icons/logo-icon-black-and-white/icon.iconset/icon_16x16.png',
@@ -37,8 +35,8 @@ var defaults = {
     preloadWindow: true,
     showDockIcon: false,
     browserWindow: {
-        width: 400,
-        height: 400,
+        width: 500,
+        height: 500,
         webPreferences: {
             nodeIntegration: true,
             webviewTag: true
