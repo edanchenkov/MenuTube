@@ -1,11 +1,11 @@
 {
   "name": "MenuTube",
-  "version": "1.5.15",
+  "version": "1.5.0",
   "description": "Catch YouTube into your macOS menu bar!",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron-packager ./ --platform=darwin --icon='./icons/logo-icon.icns' --out='./builds' --ignore='docs' --overwrite",
+    "build": "electron-packager ./ --appVersion=1.5.0 --platform=darwin --icon='./icons/logo-icon.icns' --out='./builds' --ignore='docs' --overwrite",
     "start": "electron .",
     "dev": "npm start && npm run --debug",
     "rebuild-pages": "git commit -m 'rebuild pages' --allow-empty"
