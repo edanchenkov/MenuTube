@@ -8,3 +8,5 @@ docs/_site
 
 .idea
 builds/
+dist
+entitlements

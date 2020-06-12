@@ -50,7 +50,7 @@ var clickHandler = function (name, menu) {
     }
 };
 
-var dynamicLabel = 'Check for Updates';
+var dynamicLabel = 'Check releases and notes';
 
 var defaultMenuItems = [
     {
@@ -76,7 +76,7 @@ var defaultMenuItems = [
             hideAndPause();
 
             var path = app.getAppPath();
-            win.loadURL('file://' + path + '/views/preferences.html#media-keys');
+            win.loadURL('file://' + path + '/views/preferences.html');
             win.show()
         },
         role : 'help'
@@ -101,7 +101,7 @@ var defaultMenuItems = [
         label : dynamicLabel,
         click : function () {
             hideAndPause();
-            shell.openExternal('https://edanchenkov.github.io/MenuTube/');
+            shell.openExternal('https://github.com/edanchenkov/MenuTube/releases');
         },
         role : 'help'
     },
@@ -182,7 +182,7 @@ var checkForUpdate = function (menu, controls) {
                                      *   Should check against something else probably, not label
                                      * */
                                     if (mi.label === dynamicLabel) {
-                                        mi.label = '(!) New version is available';
+                                        mi.label = '(!) NEW VERSION IS AVAILABLE';
                                     }
                                     return mi;
                                 });

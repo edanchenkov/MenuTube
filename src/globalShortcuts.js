@@ -4,18 +4,19 @@ exports.init = function (wv) {
         var accelerator = data.accelerator;
 
         switch (accelerator) {
-            case ('MediaNextTrack'):
-                wv.send('changeTime', 5);
-                break;
-            case ('MediaPreviousTrack'):
+            case ('Cmd+Ctrl+Left'):
                 wv.send('changeTime', -5);
                 break;
-            case ('MediaStop'):
+            case ('Cmd+Ctrl+Right'):
+                wv.send('changeTime', 5);
                 break;
-            case ('MediaPlayPause'):
-                wv.send('playPause');
+            case ('Cmd+Ctrl+l'):
+                wv.send('changeTime', 15);
                 break;
-            case ('Cmd+Alt+Y'):
+            case ('Cmd+Ctrl+j'):
+                wv.send('changeTime', -15);
+                break;
+            case ('Cmd+Ctrl+y'):
                 ipcRenderer.send('toggleWindow');
                 break;
         }

@@ -1,4 +1,5 @@
 var electron = require('electron');
+
 const { menubar } = require('menubar');
 var ipcMain = require('electron').ipcMain;
 
@@ -10,80 +11,80 @@ var mb = menubar(
 );
 
 var accelerators = [
-    'MediaNextTrack',
-    'MediaPreviousTrack',
-    'MediaStop',
-    'MediaPlayPause',
-    'Cmd+Alt+Y'
+    'Cmd+Ctrl+Left',
+    'Cmd+Ctrl+Right',
+    'Cmd+Ctrl+j',
+    'Cmd+Ctrl+l',
+    'Cmd+Ctrl+y'
 ];
 
 var defaultMenu = [
     {
-        label : 'Edit',
-        submenu : [
+        label: 'Edit',
+        submenu: [
             {
-                label : 'Undo',
-                accelerator : 'CmdOrCtrl+Z',
-                role : 'undo'
+                label: 'Undo',
+                accelerator: 'CmdOrCtrl+Z',
+                role: 'undo'
             },
             {
-                label : 'Redo',
-                accelerator : 'Shift+CmdOrCtrl+Z',
-                role : 'redo'
+                label: 'Redo',
+                accelerator: 'Shift+CmdOrCtrl+Z',
+                role: 'redo'
             },
             {
-                type : 'separator'
+                type: 'separator'
             },
             {
-                label : 'Cut',
-                accelerator : 'CmdOrCtrl+X',
-                role : 'cut'
+                label: 'Cut',
+                accelerator: 'CmdOrCtrl+X',
+                role: 'cut'
             },
             {
-                label : 'Copy',
-                accelerator : 'CmdOrCtrl+C',
-                role : 'copy'
+                label: 'Copy',
+                accelerator: 'CmdOrCtrl+C',
+                role: 'copy'
             },
             {
-                label : 'Paste',
-                accelerator : 'CmdOrCtrl+V',
-                role : 'paste'
+                label: 'Paste',
+                accelerator: 'CmdOrCtrl+V',
+                role: 'paste'
             },
             {
-                label : 'Select All',
-                accelerator : 'CmdOrCtrl+A',
-                role : 'selectall'
+                label: 'Select All',
+                accelerator: 'CmdOrCtrl+A',
+                role: 'selectall'
             }
         ]
     },
     {
-        label : 'View',
-        submenu : [
+        label: 'View',
+        submenu: [
             {
-                label : 'Reload',
-                accelerator : 'CmdOrCtrl+R',
-                click : function (item, focusedWindow) {
+                label: 'Reload',
+                accelerator: 'CmdOrCtrl+R',
+                click: function (item, focusedWindow) {
                     if (focusedWindow)
                         focusedWindow.reload();
                 }
             },
             {
-                label : 'Toggle Developer Tools',
-                accelerator : (function () {
+                label: 'Toggle Developer Tools',
+                accelerator: (function () {
                     if (process.platform === 'darwin')
                         return 'Alt+Command+I';
                     else
                         return 'Ctrl+Shift+I';
                 })(),
-                click : function (item, focusedWindow) {
+                click: function (item, focusedWindow) {
                     if (focusedWindow)
                         focusedWindow.toggleDevTools();
                 }
             },
             {
-                label : 'Quit',
-                accelerator : 'Command+Q',
-                click : function () {
+                label: 'Quit',
+                accelerator: 'Command+Q',
+                click: function () {
                     mb && mb.app && mb.app.quit();
                 }
             }
@@ -113,7 +114,7 @@ mb.on('ready', function ready() {
 
     var registerGlobalShortcuts = function () {
         var shortcutsHandler = function (accelerator) {
-            mb.window.webContents.send('global-shortcut', { accelerator : accelerator });
+            mb.window.webContents.send('global-shortcut', { accelerator: accelerator });
         };
 
         for (var i = 0; i < accelerators.length; i++) {
@@ -139,13 +140,7 @@ mb.on('ready', function ready() {
             }
         }
 
-        if (!config.globalShortcuts) {
-            globalShortcut.unregisterAll();
-        } else {
-            registerGlobalShortcuts();
-        }
-
-        mb.window.webContents.send('on-preference-change', { theme : config.theme });
+        mb.window.webContents.send('on-preference-change', { theme: config.theme });
 
         AppConfig.update(config);
     });
@@ -156,10 +151,7 @@ mb.on('ready', function ready() {
 
     mb.tray.on('right-click', toggleWindow);
 
-    if (config.globalShortcuts) {
-        registerGlobalShortcuts();
-    }
-
+    registerGlobalShortcuts();
 });
 
 mb.on('after-create-window', function () {
