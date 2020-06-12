@@ -40,10 +40,10 @@
         "bulma": "^0.3.2",
         "electron-config": "^0.2.1",
         "font-awesome": "^4.7.0",
-        "menubar": "^8.0.1"
+        "menubar": "^9.0.1"
     },
     "devDependencies": {
-        "electron": "^8.2.1",
+        "electron": "^9.0.3",
         "electron-builder": "^22.4.1",
         "electron-packager": "^14.2.1",
         "jshint": "^2.9.5"
