@@ -20,12 +20,6 @@ Do you enjoy listening to YouTube's podcasts, audiobooks, interviews or anything
 
 [Download](https://github.com/edanchenkov/MenuTube/releases)
 
-or 
-
-```bash
-brew cask install menutube
-```
-
 ### Build macOS application (darwin)
 
 ```bash
