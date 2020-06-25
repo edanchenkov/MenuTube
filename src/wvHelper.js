@@ -6,6 +6,18 @@ document.addEventListener = () => {
 };
 
 (function () {
+
+    const _check = v => v !== null && v !== undefined && !isNaN(v);
+    setInterval(() => {
+        const ad = [...document.querySelectorAll('.ad-showing')][0];
+        if (_check(ad)) {
+            const video = document.querySelector('video');
+            if (_check(video) && _check(video.duration)) {
+                video.currentTime = video.duration;
+            }
+        }
+    }, 500);
+
     var ipcRenderer = require('electron').ipcRenderer;
     var attempts = 1000;
 
