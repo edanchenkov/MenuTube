@@ -7,12 +7,19 @@ if (typeof __dirname !== 'undefined') {
     path = __dirname;
 }
 
+
+
+// PATH TO CONFIG:
+// /Users/<name>/Library/Application\ Support/MenuTube/
+
 /*
  * Configs that should be saved locally must be listed here,
  * also settings that user can implicitly change
  * NOT VALID ANYMORE - NO LOCAL SETTINGS NO PREFERENCES PAGE!
  * */
 var userPreferences = {
+    adBlock: false,
+
     alwaysOnTop : true,
     windowResize : true,
     windowDraggable : true,
@@ -53,7 +60,8 @@ function AppConfig() {
          *  Ignore all local configs from now on
          * */
         // This is another hack
-        userPreferences.desktopMode = config.store.desktopMode;
+        userPreferences.adBlock = config.store.adBlock;
+
         config.set(Object.assign(userPreferences, {}));
     }
 

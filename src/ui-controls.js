@@ -40,7 +40,7 @@ var clickHandler = function (name, menu) {
         case ('desktopModeButton'):
             /* Not the best way, but fine for now */
             var isActive = this.classList.contains('active');
-            AppConfig.update({ desktopMode : !isActive });
+            AppConfig.update({ desktopMode: !isActive });
             if (typeof window !== 'undefined' &&
                 typeof window.location !== 'undefined' &&
                 typeof window.location.reload == 'function') {
@@ -54,79 +54,63 @@ var dynamicLabel = 'Check releases and notes';
 
 var defaultMenuItems = [
     {
-        label : 'Open in browser',
-        click : function () {
+        label: 'Open in browser',
+        click: function () {
             hideAndPause();
             shell.openExternal(urlHandler.getCurrentURL());
         },
-        role : 'help'
+        role: 'help'
     },
     {
-        type : 'separator'
+        type: 'separator'
     },
     {
-        label : 'Video controls',
-        click : function () {
+        label: 'Preferences',
+        click: function () {
             var win = new BrowserWindow({
-                // width : 800,
-                // height : 600,
-                frame : true
+                frame: true,
+                webPreferences: {
+                    nodeIntegration: true
+                }
             });
 
             hideAndPause();
-
             var path = app.getAppPath();
             win.loadURL('file://' + path + '/views/preferences.html');
             win.show()
         },
-        role : 'help'
+        role: 'help'
     },
-    // {
-    //     label : 'Preferences',
-    //     click : function () {
-    //         var win = new BrowserWindow({
-    //             // width : 800,
-    //             // height : 600,
-    //             frame : true
-    //         });
-    //
-    //         hideAndPause();
-    //         var path = app.getAppPath();
-    //         win.loadURL('file://' + path + '/views/preferences.html');
-    //         win.show()
-    //     },
-    //     role : 'help'
-    // },
     {
-        label : dynamicLabel,
-        click : function () {
+        label: dynamicLabel,
+        click: function () {
             hideAndPause();
             shell.openExternal('https://github.com/edanchenkov/MenuTube/releases');
         },
-        role : 'help'
+        role: 'help'
     },
     {
-        type : 'separator'
+        type: 'separator'
     },
     {
-        label : 'Reload',
-        click : function () {
+        label: 'Reload',
+        click: function () {
             if (typeof window !== 'undefined' &&
                 typeof window.location !== 'undefined' &&
                 typeof window.location.reload == 'function') {
                 window.location.reload();
             }
         },
-        role : 'help',
-        accelerator : 'Cmd+R'
+        role: 'help',
+        accelerator: 'Cmd+R'
     },
     {
-        label : 'Quit',
-        click : function () {
+        label: 'Quit',
+        click: function () {
             app.quit();
         },
-        role : 'help',
-        accelerator : 'Cmd+Q'
+        role: 'help',
+        accelerator: 'Cmd+Q'
     }
 ];
 
@@ -143,12 +127,12 @@ var buildMenu = function (menu, menuItems) {
         var mi = menuItems[i];
         menu.append(new MenuItem(
             {
-                label : mi.label,
-                click : mi.click,
-                type : mi.type,
-                role : mi.role,
-                accelerator : mi.accelerator,
-                submenu : mi.submenu
+                label: mi.label,
+                click: mi.click,
+                type: mi.type,
+                role: mi.role,
+                accelerator: mi.accelerator,
+                submenu: mi.submenu
             })
         );
     }
