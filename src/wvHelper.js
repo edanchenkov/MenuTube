@@ -10,12 +10,12 @@ document.addEventListener = () => {
     var config = AppConfig.store.userPreferences;
 
     if (!!config.adBlock) {
-        const _check = v => v !== null && v !== undefined && !isNaN(v);
+        const _check = v => v !== null && v !== undefined;
         setInterval(() => {
             const ad = [...document.querySelectorAll('.ad-showing')][0];
             if (_check(ad)) {
                 const video = document.querySelector('video');
-                if (_check(video) && _check(video.duration)) {
+                if (_check(video) && !isNaN(video.duration)) {
                     video.currentTime = video.duration;
                 }
             }
