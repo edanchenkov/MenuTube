@@ -266,13 +266,13 @@
                 wv.addEventListener('dom-ready', function () {
                     if (!initialised) {
                         var controls = {
-                            backButton : document.getElementById('back-btn'),
-                            refreshButton : document.getElementById('refresh-btn'),
-                            forwardButton : document.getElementById('forward-btn'),
-                            preferenceButton : document.getElementById('pref-btn'),
-                            PIPMode : document.getElementById('PIP-btn'),
-                            PIPDragArea : document.querySelector('.PIP-drag-area'),
-                            desktopModeButton : document.getElementById('desktop-mode-btn')
+                            backButton: document.getElementById('back-btn'),
+                            refreshButton: document.getElementById('refresh-btn'),
+                            forwardButton: document.getElementById('forward-btn'),
+                            preferenceButton: document.getElementById('pref-btn'),
+                            PIPMode: document.getElementById('PIP-btn'),
+                            PIPDragArea: document.querySelector('.PIP-drag-area'),
+                            desktopModeButton: document.getElementById('desktop-mode-btn')
                         };
 
                         initialised = true;
@@ -298,13 +298,15 @@
                     (function () {
                         'use strict';
                         var ElectronCookies = require('@exponent/electron-cookies');
-                        ElectronCookies.enable({ origin : 'https://MenuTube.electron.app.local.com' });
+                        ElectronCookies.enable({ origin: 'https://MenuTube.electron.app.local.com' });
 
                         ga('create', 'UA-92232645-1', 'auto');
                         ga('set', 'location', 'https://MenuTube.electron.app.local.com/');
                         ga('set', 'checkProtocolTask', null);
                         ga('send', 'pageview');
                         ga('set', 'appVersion', remote && remote.app && remote.app.getVersion());
+                        ga('send', 'appVersion', remote && remote.app && remote.app.getVersion());
+
                     })();
                 }, 500)
             }
