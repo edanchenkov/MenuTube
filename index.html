@@ -305,8 +305,16 @@
                         ga('set', 'checkProtocolTask', null);
                         ga('send', 'pageview');
                         ga('set', 'appVersion', remote && remote.app && remote.app.getVersion());
-                        ga('send', 'appVersion', remote && remote.app && remote.app.getVersion());
 
+                        ga('send', {
+                            'hitType': 'event',
+                            'eventCategory': 'app',
+                            'eventAction': 'init',
+                            'eventLabel': remote && remote.app && remote.app.getVersion(),
+                            // 'hitCallback': function () {
+                            //     alert("Event received");
+                            // }
+                        });
                     })();
                 }, 500)
             }

@@ -1,8 +1,8 @@
-const l = document.addEventListener;
+const _newListener = document.addEventListener;
 
 // Hijack event listener to prevent YouTube from stopping on blue window (lose focus)
 document.addEventListener = () => {
-    l.apply(document, arguments);
+    _newListener.apply(document, arguments);
 };
 
 (function () {
@@ -10,16 +10,41 @@ document.addEventListener = () => {
     var config = AppConfig.store.userPreferences;
 
     if (!!config.adBlock) {
-        const _check = v => v !== null && v !== undefined;
-        setInterval(() => {
-            const ad = [...document.querySelectorAll('.ad-showing')][0];
-            if (_check(ad)) {
-                const video = document.querySelector('video');
-                if (_check(video) && !isNaN(video.duration)) {
-                    video.currentTime = video.duration;
+        var observeDOM = (function () {
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+            return function (obj, callback) {
+                if (!obj || !obj.nodeType === 1) {
+                    return;
+                } // validation
+
+                if (MutationObserver) {
+                    // define a new observer
+                    var obs = new MutationObserver(function (mutations, observer) {
+                        callback(mutations);
+                    });
+                    // have the observer observe foo for changes in children
+                    obs.observe(obj, { childList: true, subtree: true });
+                } else if (window.addEventListener) {
+                    obj.addEventListener('DOMNodeInserted', callback, false);
+                    obj.addEventListener('DOMNodeRemoved', callback, false);
                 }
             }
-        }, 500);
+        })();
+
+        _newListener('DOMContentLoaded', () => {
+            observeDOM(document.body, function (m) {
+                const _check = v => v !== null && v !== undefined;
+                const ad = [...document.querySelectorAll('.ad-showing')][0];
+                if (_check(ad)) {
+                    const video = document.querySelector('video');
+                    if (_check(video) && !isNaN(video.duration)) {
+                        video.currentTime = video.duration;
+                    }
+                }
+            });
+        });
+
     }
 
     var ipcRenderer = require('electron').ipcRenderer;
