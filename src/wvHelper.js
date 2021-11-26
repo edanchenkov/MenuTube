@@ -98,6 +98,10 @@ document.addEventListener = () => {
     ipcRenderer.on('enterPIPMode', function _retry() {
         var video = document.querySelector('video');
 
+        if(!document.URL.includes('watch?v=')) {
+            return;
+        }
+
         if (typeof video === 'undefined' || video === null) {
             if (attempts > 0) {
                 setTimeout(_retry, 100);
