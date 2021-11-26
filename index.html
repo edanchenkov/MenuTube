@@ -1,318 +1,279 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>MenuTube</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="node_modules/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="node_modules/bulma/css/bulma.css"
+    />
+    <style>
+      html {
+        overflow-y: auto;
+      }
 
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>MenuTube</title>
-        <link rel="stylesheet" type="text/css"
-              href="node_modules/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="node_modules/bulma/css/bulma.css">
-        <style>
-            html {
-                overflow-y: auto;
-            }
+      webview {
+        position: absolute;
+        top: 62.5px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        outline: none !important;
+      }
 
-            webview {
-                position: absolute;
-                top: 62.5px;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: 0;
-                padding: 0;
-                outline: none !important;
-            }
+      webview.hide {
+        flex: 0 1;
+        width: 0px;
+        height: 0px;
+      }
 
-            webview.hide {
-                flex: 0 1;
-                width: 0px;
-                height: 0px;
-            }
+      .controls {
+        background-color: #ecf0f1;
+        border-bottom: 2.5px solid #bdc3c7;
+        top: 0;
+        left: 0;
+        height: 62.5px;
+        margin-top: 0;
+        padding: 0 10px;
+        align-items: center;
+      }
 
-            .controls {
-                background-color: #ecf0f1;
-                border-bottom: 2.5px solid #bdc3c7;
-                top: 0;
-                left: 0;
-                height: 62.5px;
-                margin-top: 0;
-                padding: 0 10px;
-                align-items: center;
-            }
+      .align-right {
+        text-align: right;
+      }
 
-            .align-right {
-                text-align: right;
-            }
+      #pref-btn > span > .update-available {
+        color: #ff0057;
+      }
 
-            #pref-btn > span > .update-available {
-                color: #ff0057;
-            }
+      .draggable {
+        -webkit-app-region: drag;
+        -webkit-user-select: none;
+      }
 
-            .draggable {
-                -webkit-app-region: drag;
-                -webkit-user-select: none;
-            }
+      .PIP-drag-area {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 3.35rem;
+        line-height: 3.35rem;
+        z-index: 100;
+        color: transparent;
+        background-color: transparent;
+        opacity: 0;
+        text-align: center;
+      }
 
-            .PIP-drag-area {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 3.35rem;
-                line-height: 3.35rem;
-                z-index: 100;
-                color: transparent;
-                background-color: transparent;
-                opacity: 0;
-                text-align: center;
-            }
+      #desktop-mode-btn {
+        margin-left: 0.75rem;
+      }
 
-            #desktop-mode-btn {
-                margin-left: 0.75rem;
-            }
+      #desktop-mode-btn .fa-mobile {
+        display: none;
+      }
 
-            #desktop-mode-btn .fa-mobile {
-                display: none;
-            }
+      #desktop-mode-btn .fa-desktop {
+        display: inline-block;
+      }
 
-            #desktop-mode-btn .fa-desktop {
-                display: inline-block;
-            }
+      #desktop-mode-btn.active .fa-mobile {
+        display: inline-block;
+        font-size: 1.5rem;
+      }
 
-            #desktop-mode-btn.active .fa-mobile {
-                display: inline-block;
-                font-size: 1.5rem;
-            }
+      #desktop-mode-btn.active .fa-desktop {
+        display: none;
+      }
 
-            #desktop-mode-btn.active .fa-desktop {
-                display: none;
-            }
+      body.PIP-mode .controls {
+        display: none;
+      }
 
-            body.PIP-mode .controls {
-                display: none;
-            }
+      body.PIP-mode #wv {
+        top: 0;
+      }
 
-            body.PIP-mode #wv {
-                top: 0;
-            }
+      body.PIP-mode .PIP-drag-area {
+        display: block;
+      }
 
-            body.PIP-mode .PIP-drag-area {
-                display: block;
-            }
+      body.PIP-mode .PIP-drag-area:hover {
+        background-color: #73100b;
+        opacity: 0.95;
+        color: white;
+        transition: all 0.5s linear;
+      }
 
-            body.PIP-mode .PIP-drag-area:hover {
-                background-color: #73100b;
-                opacity: 0.95;
-                color: white;
-                transition: all 0.5s linear;
-            }
+      .splash-screen {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 100;
+        background-color: #ecf0f1;
+        top: 0;
+        opacity: 1;
+        transition: all 0.525s ease-out;
+      }
 
-            .splash-screen {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                z-index: 100;
-                background-color: #ecf0f1;
-                top: 0;
-                opacity: 1;
-                transition: all .525s ease-out;
-            }
+      .splash-screen:after {
+        content: "";
+        background: url(./icons/logo-icon.png);
+        background-position: center center;
+        animation-duration: 2s;
+        animation-iteration-count: Infinite;
+        background-repeat: no-repeat;
+        background-size: 75%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation-name: zoomIn;
 
-            .splash-screen:after {
-                content: "";
-                background: url(./icons/logo-icon.png);
-                background-position: center center;
-                animation-duration: 2s;
-                animation-iteration-count: Infinite;
-                background-repeat: no-repeat;
-                background-size: 75%;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                animation-name: zoomIn;
+        transform: scale(0.25, 0.25);
+      }
 
-                transform: scale(0.25, 0.25);
-            }
+      .splash-screen.hide {
+        opacity: 0;
+        transform: scale(8, 8);
+      }
 
-            .splash-screen.hide {
-                opacity: 0;
-                transform: scale(8, 8);
-            }
+      @keyframes zoomIn {
+        from {
+          opacity: 0.2;
+          transform: scale(0.25, 0.25);
+        }
 
-            @keyframes zoomIn {
-                from {
-                    opacity: 0.2;
-                    transform: scale(0.25, 0.25);
-                }
+        50% {
+          opacity: 1;
+          transform: scale(0.5, 0.5);
+        }
+      }
 
-                50% {
-                    opacity: 1;
-                    transform: scale(0.5, 0.5);
-                }
-            }
+      .zoomIn {
+        animation-name: zoomIn;
+      }
 
-            .zoomIn {
-                animation-name: zoomIn;
-            }
+      #app-version {
+        position: absolute;
+        bottom: 1rem;
+        text-align: center;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+      }
 
-            #app-version {
-                position: absolute;
-                bottom: 1rem;
-                text-align: center;
-                width: 100%;
-                font-size: 1rem;
-                font-weight: 600;
-            }
+      /* THEMES */
+      /* MAKE SURE ALL THEME HAVE `-theme` prefix !!! */
 
-            /* THEMES */
-            /* MAKE SURE ALL THEME HAVE `-theme` prefix !!! */
+      /* RED */
+      body.red-theme .controls {
+        background-color: #df3c32;
+        border-color: #c1140c;
+      }
 
-            /* RED */
-            body.red-theme .controls {
-                background-color: #df3c32;
-                border-color: #c1140c;
-            }
+      body.red-theme .button {
+        background-color: #e62117;
+        border-color: #c1140c;
+        color: #ffffff;
+      }
 
-            body.red-theme .button {
-                background-color: #e62117;
-                border-color: #c1140c;
-                color: #ffffff;
-            }
+      body.red-theme #pref-btn > span > .update-available {
+        color: #00ff6a;
+      }
 
-            body.red-theme #pref-btn > span > .update-available {
-                color: #00ff6a;
-            }
+      /* DARK BLUE */
+      body.blue-theme .controls {
+        background-color: #1e263e;
+        border-color: #33414c;
+      }
 
-            /* DARK BLUE */
-            body.blue-theme .controls {
-                background-color: #1e263e;
-                border-color: #33414c;
-            }
+      body.blue-theme .button {
+        background-color: #1e263e;
+        border-color: #33414c;
+        color: #e1e5ff;
+      }
+    </style>
+  </head>
 
-            body.blue-theme .button {
-                background-color: #1e263e;
-                border-color: #33414c;
-                color: #e1e5ff;
-            }
-
-        </style>
-    </head>
-
-    <body>
-        <div class="PIP-drag-area draggable"> Drag to move or double click to
-            exit PIP mode
+  <body>
+    <div class="PIP-drag-area draggable">
+      Drag to move or double click to exit PIP mode
+    </div>
+    <div class="controls columns is-mobile">
+      <div class="column is-three-quarters">
+        <div class="control is-grouped">
+          <p class="control has-addons is-9">
+            <a id="back-btn" class="button">
+              <span class="icon is-small">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a id="refresh-btn" class="button">
+              <span class="icon is-small">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a id="forward-btn" class="button">
+              <span class="icon is-small">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          </p>
+          <a id="PIP-btn" class="button">
+            <span class="icon is-small">
+              <i class="fa fa-chevron-up" aria-hidden="true"></i>
+            </span>
+          </a>
         </div>
-        <div class="controls columns is-mobile">
-            <div class="column is-three-quarters">
-                <div class="control is-grouped">
-                    <p class="control has-addons is-9">
-                        <a id="back-btn" class="button">
-                        <span class="icon is-small">
-                            <i class="fa fa-chevron-left"
-                               aria-hidden="true"></i>
-                        </span>
-                        </a>
-                        <a id="refresh-btn" class="button">
-                        <span class="icon is-small">
-                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                        </span>
-                        </a>
-                        <a id="forward-btn" class="button">
-                        <span class="icon is-small">
-                            <i class="fa fa-chevron-right"
-                               aria-hidden="true"></i>
-                        </span>
-                        </a>
-                    </p>
-                    <a id="PIP-btn" class="button">
-                        <span class="icon is-small">
-                            <i class="fa fa-chevron-up"
-                               aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
+      </div>
 
-            <div class="column">
-                <p class="control align-right">
-                    <a id="pref-btn" class="button">
-                        <span class="icon is-small">
-                            <i class="fa fa-bars" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="splash-screen">
-            <span id="app-version"></span>
-        </div>
-        <webview src="about:blank" id="wv"
-                 preload="./src/wvHelper.js"></webview>
-        <script>
-            onload = function () {
-                var remote = require('electron').remote;
-                document.getElementById('app-version').innerText = 'MenuTube v.' + remote.app.getVersion();
+      <div class="column">
+        <p class="control align-right">
+          <a id="pref-btn" class="button">
+            <span class="icon is-small">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="splash-screen">
+      <span id="app-version"></span>
+    </div>
+    <webview src="about:blank" id="wv" preload="./src/wvHelper.js"></webview>
+    <script>
+      onload = function () {
+        var remote = require("electron").remote;
+        document.getElementById("app-version").innerText =
+          "MenuTube v." + remote.app.getVersion();
 
-                // Get webview
-                var wv = document.getElementById('wv');
-                var initialised = false;
-                wv.addEventListener('dom-ready', function () {
-                    if (!initialised) {
-                        var controls = {
-                            backButton: document.getElementById('back-btn'),
-                            refreshButton: document.getElementById('refresh-btn'),
-                            forwardButton: document.getElementById('forward-btn'),
-                            preferenceButton: document.getElementById('pref-btn'),
-                            PIPMode: document.getElementById('PIP-btn'),
-                            PIPDragArea: document.querySelector('.PIP-drag-area')
-                        };
+        // Get webview
+        var wv = document.getElementById("wv");
+        var initialised = false;
+        wv.addEventListener("dom-ready", function () {
+          if (!initialised) {
+            var controls = {
+              backButton: document.getElementById("back-btn"),
+              refreshButton: document.getElementById("refresh-btn"),
+              forwardButton: document.getElementById("forward-btn"),
+              preferenceButton: document.getElementById("pref-btn"),
+              PIPMode: document.getElementById("PIP-btn"),
+              PIPDragArea: document.querySelector(".PIP-drag-area"),
+            };
 
-                        initialised = true;
-                        var app = require('./src/app.js');
-                        app.continueInit(wv, controls);
-                    }
-                });
-
-
-                setTimeout(function () {
-                    (function (i, s, o, g, r, a, m) {
-                        i['GoogleAnalyticsObject'] = r;
-                        i[r] = i[r] || function () {
-                            (i[r].q = i[r].q || []).push(arguments)
-                        }, i[r].l = 1 * new Date();
-                        a = s.createElement(o),
-                            m = s.getElementsByTagName(o)[0];
-                        a.async = 1;
-                        a.src = g;
-                        m.parentNode.insertBefore(a, m)
-                    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-                    (function () {
-                        'use strict';
-                        var ElectronCookies = require('@exponent/electron-cookies');
-                        ElectronCookies.enable({ origin: 'https://MenuTube.electron.app.local.com' });
-
-                        ga('create', 'UA-92232645-1', 'auto');
-                        ga('set', 'location', 'https://MenuTube.electron.app.local.com/');
-                        ga('set', 'checkProtocolTask', null);
-                        ga('send', 'pageview');
-                        ga('set', 'appVersion', remote && remote.app && remote.app.getVersion());
-
-                        ga('send', {
-                            'hitType': 'event',
-                            'eventCategory': 'app',
-                            'eventAction': 'init',
-                            'eventLabel': remote && remote.app && remote.app.getVersion(),
-                            // 'hitCallback': function () {
-                            //     alert("Event received");
-                            // }
-                        });
-                    })();
-                }, 500)
-            }
-        </script>
-
-    </body>
-
+            initialised = true;
+            var app = require("./src/app.js");
+            app.continueInit(wv, controls);
+          }
+        });
+      };
+    </script>
+  </body>
 </html>

@@ -8,12 +8,13 @@ We reserve the right to change this policy at any given time. If you want to mak
 
 When you use MenuTube, we don't specifically collect your data. However we use Google Analytics. This way we might collect following information:
 
- - Data profile regarding your online behavior using MenuTube. Not directly assiciated with a user.
+- Data profile regarding your online behavior using MenuTube. Not directly assiciated with a user.
 
 We are collecting your data for several reasons:
- - To better understand your needs.
- - To improve our services and products.
- - To customize MenuTube according to your online behavior and personal preferences.
+
+- To better understand your needs.
+- To improve our services and products.
+- To customize MenuTube according to your online behavior and personal preferences.
 
 We do not collect any personal information or track specific activity.
 We do not sell or distribute any of your data.
