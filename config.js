@@ -41,11 +41,13 @@ var defaults = {
     iconPressed: path + '/icons/logo-icon-black-and-white-inverse/icon.iconset/icon_16x16.png',
     preloadWindow: true,
     showDockIcon: false,
+    showOnAllWorkspaces: false,
     browserWindow: {
         width: 500,
         height: 500,
         webPreferences: {
             nodeIntegration: true,
+            enableRemoteModule: true,
             webviewTag: true
         }
     },

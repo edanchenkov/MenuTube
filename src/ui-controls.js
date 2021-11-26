@@ -36,16 +36,7 @@ var clickHandler = function (name, menu) {
             break;
         case ('PIPDragArea'):
             document.body.classList.remove("PIP-mode");
-            break;
-        case ('desktopModeButton'):
-            /* Not the best way, but fine for now */
-            var isActive = this.classList.contains('active');
-            AppConfig.update({ desktopMode: !isActive });
-            if (typeof window !== 'undefined' &&
-                typeof window.location !== 'undefined' &&
-                typeof window.location.reload == 'function') {
-                window.location.reload();
-            }
+            wv.reload();
             break;
     }
 };
