@@ -33,8 +33,23 @@ document.addEventListener = () => {
       };
     })();
 
+    var currentTitle = "";
+
     _newListener("DOMContentLoaded", () => {
       observeDOM(document.body, function (m) {
+        // Sending only video urls
+        if (
+          window.location.pathname.includes("watch") &&
+          window.document.title !== currentTitle
+        ) {
+          ipcRenderer.send("navigatedPage", {
+            host: window.location.host,
+            url: window.location.pathname + window.location.search,
+            title: window.document.title,
+          });
+          currentTitle = window.document.title;
+        }
+
         const _check = (v) => v !== null && v !== undefined;
         const ad = [...document.querySelectorAll(".ad-showing")][0];
         if (_check(ad)) {

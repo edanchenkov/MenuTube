@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "DEBUG=true electron .",
-    "dev": "npm start && npm run --debug",
     "dist": "electron-builder",
     "dist:debug": "DEBUG=electron-builder electron-builder --dir",
     "prettier": "prettier --write ."
@@ -40,7 +39,7 @@
     "bulma": "^0.3.2",
     "electron-config": "^0.2.1",
     "font-awesome": "^4.7.0",
-    "universal-analytics": "^0.5.1",
+    "electron-google-analytics": "^1.0.2",
     "menubar": "^9.0.1"
   },
   "devDependencies": {

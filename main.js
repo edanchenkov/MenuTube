@@ -1,5 +1,5 @@
 var electron = require("electron");
-var ua = require("universal-analytics");
+var Analytics = require("electron-google-analytics");
 
 const { menubar } = require("menubar");
 var ipcMain = require("electron").ipcMain;
@@ -88,13 +88,28 @@ var defaultMenu = [
 ];
 
 mb.on("ready", function ready() {
+  console.info("App version", mb.app.getVersion());
   console.info("Main process is ready, continue...");
   console.info("Debug:", !!process.env.npm_config_debug);
 
-  var visitor = ua("UA-92232645-1");
+  const analytics = new Analytics.default("UA-92232645-1");
 
-  visitor.set("appVersion", mb.app.getVersion());
-  visitor.event("App cycle", "OnReady").send();
+  analytics.set("appName", "MenuTube");
+  analytics.set("appVersion", mb.app.getVersion());
+
+  analytics
+    .event("AppCycle", "OnReady", {
+      evLabel: "appVersion",
+      evValue: mb.app.getVersion(),
+    })
+    .then((data) => {
+      return ipcMain.on("navigatedPage", function (event, e) {
+        analytics.pageview(e.host, e.url, e.title, data.clientID).then(() => {
+          console.log("Page view event sent: " + e.url);
+        });
+      });
+    })
+    .catch(console.info);
 
   /*
    *   Set app menu to be able to use copy and paste shortcuts
