@@ -1,124 +1,116 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Controls</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../node_modules/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../node_modules/bulma/css/bulma.css"
+    />
+    <style>
+      .container {
+        padding: 20px;
+      }
 
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>Controls</title>
-        <link rel="stylesheet" type="text/css"
-              href="./../node_modules/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="./../node_modules/bulma/css/bulma.css">
-        <style>
-            .container {
-                padding: 20px;
-            }
-
-            #github-link:hover {
-                color: #008751;
-                cursor: pointer;
-            }
-
-        </style>
-    </head>
+      #github-link:hover {
+        color: #008751;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">Controls</h1>
+        </div>
+      </div>
+    </section>
     <body>
-        <section class="hero is-info">
-            <div class="hero-body">
-                <div class="container">
-                    <h1 class="title is-1">
-                        Controls
-                    </h1>
-                </div>
-            </div>
-        </section>
-        <body>
-            <div id="adBlock" class="container">
-                <div class="heading">
-                    <p class="title is-3">Disable ads
-                    <span
-                                class="tag is-danger is-small">Require a restart or reload (CMD+R)</span></p>
-                </div>
-                <p class="control">
-                    <label class="radio">
-                        <input value="yes" type="radio" name="adBlock"
-                               checked>
-                        Yes
-                    </label>
-                    <label class="radio">
-                        <input value="no" type="radio" name="adBlock">
-                        No
-                    </label>
-                </p>
-            </div>
-            <div id="media-keys" class="container">
-                <div class="heading">
-                    <p class="title is-3">Use media keys and shortcuts on
-                        keyboard to manage
-                        video/audio</p>
-                    <nav class="panel">
-                        <p class="panel-block">
-                                <span class="panel-icon"><i class="fa fa-play"
-                                                            aria-hidden="true"></i></span>
-                            - play or Pause video
-                        </p>
-                        <p class="panel-block">
-                          <span class="panel-icon">
-                                    <i class="fa fa-forward"
-                                       aria-hidden="true"></i>
-                                </span> - play next video in a playlist
-                        </p>
-                        <p class="panel-block">
-                          <span class="panel-icon">
-                                    <i class="fa fa-backward"
-                                       aria-hidden="true"></i>
-                                </span> - play previous video in a playlist
-                        </p>
-                        <p class="panel-block">
-                            "Cmd(⌘) + Ctrl(^) + Right Arrow(→)" - jump 5
-                            sec forward
-                        </p>
-                        <p class="panel-block">
-                            "Cmd(⌘) + Ctrl(^) + Left Arrow(←)" - jump 5
-                            sec backward
-                        </p>
-                        <p class="panel-block">
-                            "Cmd(⌘) + Ctrl(^) + L" - jump 15
-                            sec forward
-                        </p>
-                        <p class="panel-block">
-                            "Cmd(⌘) + Ctrl(^) + J" - jump 15
-                            sec backward
-                        </p>
-                        <p class="panel-block">
-                            "Cmd(⌘) + Ctrl(^) + Y" - toggle window
-                        </p>
-                    </nav>
-                </div>
-            </div>
-            <div class="container">
-                <a id="save-btn"
-                   class="button is-success is-medium">Save</a>
-            </div>
-        </body>
-        <footer class="footer">
-            <div class="container">
-                <div class="content has-text-centered">
-                    <p>
-                        Made with ❤️
-                    </p>
-                    <p>
-                        Open source on github
-                        <span id="github-link" class="icon">
-                            <i class="fa fa-github"></i>
-                        </span>
-                    </p>
-                    <p id="app-version">
-                        MenuTube (2020)
-                    </p>
-                </div>
-            </div>
-        </footer>
-        <script src="./../src/preferences.js" type="text/javascript"></script>
+      <div id="adBlock" class="container">
+        <div class="heading">
+          <p class="title is-3">
+            Disable ads
+            <span class="tag is-danger is-small"
+              >Require a restart or reload (CMD+R)</span
+            >
+          </p>
+        </div>
+        <p class="control">
+          <label class="radio">
+            <input value="yes" type="radio" name="adBlock" checked />
+            Yes
+          </label>
+          <label class="radio">
+            <input value="no" type="radio" name="adBlock" />
+            No
+          </label>
+        </p>
+      </div>
+      <div id="media-keys" class="container">
+        <div class="heading">
+          <p class="title is-3">
+            Use media keys and shortcuts on keyboard to manage video/audio
+          </p>
+          <nav class="panel">
+            <p class="panel-block">
+              <span class="panel-icon"
+                ><i class="fa fa-play" aria-hidden="true"></i
+              ></span>
+              - play or Pause video
+            </p>
+            <p class="panel-block">
+              <span class="panel-icon">
+                <i class="fa fa-forward" aria-hidden="true"></i>
+              </span>
+              - play next video in a playlist
+            </p>
+            <p class="panel-block">
+              <span class="panel-icon">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+              </span>
+              - play previous video in a playlist
+            </p>
+            <p class="panel-block">
+              "Cmd(⌘) + Ctrl(^) + Right Arrow(→)" - jump 5 sec forward
+            </p>
+            <p class="panel-block">
+              "Cmd(⌘) + Ctrl(^) + Left Arrow(←)" - jump 5 sec backward
+            </p>
+            <p class="panel-block">
+              "Cmd(⌘) + Ctrl(^) + L" - jump 15 sec forward
+            </p>
+            <p class="panel-block">
+              "Cmd(⌘) + Ctrl(^) + J" - jump 15 sec backward
+            </p>
+            <p class="panel-block">"Cmd(⌘) + Ctrl(^) + Y" - toggle window</p>
+          </nav>
+        </div>
+      </div>
+      <div class="container">
+        <a id="save-btn" class="button is-success is-medium">Save</a>
+      </div>
     </body>
-
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>Made with ❤️</p>
+          <p>
+            Open source on github
+            <span id="github-link" class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </p>
+          <p id="app-version">MenuTube (2020)</p>
+        </div>
+      </div>
+    </footer>
+    <script src="./../src/preferences.js" type="text/javascript"></script>
+  </body>
 </html>

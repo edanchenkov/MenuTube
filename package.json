@@ -1,50 +1,52 @@
 {
-    "name": "MenuTube",
-    "version": "1.7.4",
-    "description": "Catch YouTube into your macOS menu bar!",
-    "main": "main.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "DEBUG=true electron .",
-        "dev": "npm start && npm run --debug",
-        "dist": "electron-builder",
-        "dist:debug": "DEBUG=electron-builder electron-builder --dir"
-    },
-    "build": {
-        "productName": "MenuTube",
-        "appId": "com.rednuclearmonkey.menutube",
-        "icon": "./icons/logo-icon.icns",
-        "mac": {
-            "target": [
-                "dmg"
-            ],
-            "gatekeeperAssess": false,
-            "asarUnpack": [],
-            "type": "distribution",
-            "hardenedRuntime": false
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/edanchenkov/MenuTube.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/edanchenkov/MenuTube/issues"
-    },
-    "homepage": "https://github.com/edanchenkov/MenuTube#readme",
-    "dependencies": {
-        "@exponent/electron-cookies": "^2.0.0",
-        "bulma": "^0.3.2",
-        "electron-config": "^0.2.1",
-        "font-awesome": "^4.7.0",
-        "menubar": "^9.0.1"
-    },
-    "devDependencies": {
-        "electron": "^11.5.0",
-        "electron-builder": "^22.4.1",
-        "electron-packager": "^14.2.1",
-        "jshint": "^2.9.5"
+  "name": "MenuTube",
+  "version": "1.7.4",
+  "description": "Catch YouTube into your macOS menu bar!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=true electron .",
+    "dist": "electron-builder",
+    "dist:debug": "DEBUG=electron-builder electron-builder --dir",
+    "prettier": "prettier --write ."
+  },
+  "build": {
+    "productName": "MenuTube",
+    "appId": "com.rednuclearmonkey.menutube",
+    "icon": "./icons/logo-icon.icns",
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "gatekeeperAssess": false,
+      "asarUnpack": [],
+      "type": "distribution",
+      "hardenedRuntime": false
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edanchenkov/MenuTube.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edanchenkov/MenuTube/issues"
+  },
+  "homepage": "https://github.com/edanchenkov/MenuTube#readme",
+  "dependencies": {
+    "@exponent/electron-cookies": "^2.0.0",
+    "bulma": "^0.3.2",
+    "electron-config": "^0.2.1",
+    "font-awesome": "^4.7.0",
+    "electron-google-analytics": "^1.0.2",
+    "menubar": "^9.0.1"
+  },
+  "devDependencies": {
+    "electron": "^11.5.0",
+    "electron-builder": "^22.4.1",
+    "electron-packager": "^14.2.1",
+    "jshint": "^2.9.5",
+    "prettier": "^2.5.0"
+  }
 }
